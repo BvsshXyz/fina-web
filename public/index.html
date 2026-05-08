@@ -1039,6 +1039,295 @@
       .hcat3 { left: 12px; bottom: 50px; }
     }
 
+
+    .gift-notif {
+      margin-top: 18px;
+      width: min(100%, 420px);
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 14px 15px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 16px 34px rgba(255, 79, 154, .14);
+      backdrop-filter: blur(12px);
+      animation: giftNotifIn .7s ease both, giftNotifFloat 3s ease-in-out infinite;
+    }
+
+    .gift-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      color: white;
+      font-size: 1.45rem;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 12px 24px rgba(255, 79, 154, .22);
+    }
+
+    .gift-notif-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .gift-notif-text b {
+      display: block;
+      color: #bd3b7b;
+      font-size: .98rem;
+      margin-bottom: 2px;
+    }
+
+    .gift-notif-text span {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 650;
+      line-height: 1.45;
+    }
+
+    .gift-open-btn {
+      border: 0;
+      cursor: pointer;
+      flex: 0 0 auto;
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 10px 22px rgba(255, 79, 154, .18);
+      transition: .22s ease;
+    }
+
+    .gift-open-btn:active {
+      transform: scale(.94);
+    }
+
+    .gift-box {
+      position: relative;
+      z-index: 2;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .gift-box:before,
+    .gift-box:after {
+      content: "♡";
+      position: absolute;
+      color: rgba(255, 255, 255, .65);
+      font-size: 9rem;
+      font-weight: 950;
+      line-height: 1;
+      text-shadow: 0 12px 34px rgba(255, 79, 154, .15);
+    }
+
+    .gift-box:before {
+      left: -10px;
+      top: 30px;
+      transform: rotate(-16deg);
+    }
+
+    .gift-box:after {
+      right: -12px;
+      bottom: 20px;
+      transform: rotate(15deg);
+    }
+
+    .gift-center {
+      position: relative;
+      z-index: 3;
+      width: min(92vw, 430px);
+      padding: 28px 22px 32px;
+      border-radius: 38px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .gift-big-love {
+      width: 178px;
+      height: 178px;
+      margin: 6px auto 22px;
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: white;
+      font-size: 5.2rem;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.55), transparent 26%),
+        linear-gradient(135deg, #ff3f92, #ff8fc1);
+      box-shadow:
+        0 22px 55px rgba(255, 79, 154, .32),
+        inset 0 -10px 24px rgba(188, 43, 118, .16);
+      animation: giftHeartBeat 1.5s ease-in-out infinite;
+      transition: .2s ease;
+      position: relative;
+      overflow: visible;
+    }
+
+    .gift-big-love:active {
+      transform: scale(.92);
+    }
+
+    .gift-big-love.clicked {
+      animation: giftHeartTap .28s ease;
+    }
+
+    .gift-big-love.broken {
+      animation: giftBreak .75s ease forwards;
+      pointer-events: none;
+    }
+
+    .gift-big-love.broken:before,
+    .gift-big-love.broken:after {
+      content: "❤";
+      position: absolute;
+      color: #ff3f92;
+      font-size: 3.4rem;
+      text-shadow: 0 10px 25px rgba(255, 79, 154, .3);
+      animation: giftPiece .72s ease forwards;
+    }
+
+    .gift-big-love.broken:before {
+      left: 20px;
+      top: 48px;
+      --gx: -85px;
+      --gy: -55px;
+      --gr: -40deg;
+    }
+
+    .gift-big-love.broken:after {
+      right: 20px;
+      top: 48px;
+      --gx: 85px;
+      --gy: -50px;
+      --gr: 40deg;
+    }
+
+    .gift-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 14px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 240, 247, .9);
+      color: #bd3b7b;
+      font-weight: 950;
+      box-shadow: 0 10px 24px rgba(255, 79, 154, .1);
+    }
+
+    .gift-center h2 {
+      color: #3d1d2e;
+      font-size: clamp(2rem, 7vw, 3.35rem);
+      line-height: .98;
+      letter-spacing: -.06em;
+      margin-bottom: 12px;
+    }
+
+    .gift-center p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 650;
+      margin-bottom: 14px;
+    }
+
+    .gift-hint {
+      color: #bd3b7b;
+      font-weight: 900;
+      font-size: .95rem;
+    }
+
+    .gift-spark {
+      position: absolute;
+      z-index: 4;
+      color: white;
+      font-weight: 950;
+      pointer-events: none;
+      text-shadow: 0 8px 24px rgba(255, 79, 154, .35);
+      animation: heroLovePulse 2.8s ease-in-out infinite;
+    }
+
+    .gs1 { left: 18%; top: 18%; font-size: 2.3rem; animation-delay: .1s; }
+    .gs2 { right: 18%; top: 22%; font-size: 2rem; animation-delay: .35s; }
+    .gs3 { left: 12%; bottom: 20%; font-size: 2.1rem; animation-delay: .7s; }
+    .gs4 { right: 13%; bottom: 18%; font-size: 2.5rem; animation-delay: 1s; }
+
+    @keyframes giftNotifIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes giftNotifFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes giftHeartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    @keyframes giftHeartTap {
+      0% { transform: scale(1); }
+      50% { transform: scale(.88); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes giftBreak {
+      0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+      60% {
+        opacity: .9;
+        transform: scale(1.18) rotate(5deg);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(.25) rotate(-18deg);
+      }
+    }
+
+    @keyframes giftPiece {
+      to {
+        opacity: 0;
+        transform: translate(var(--gx), var(--gy)) rotate(var(--gr)) scale(1.4);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gift-notif {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .gift-open-btn {
+        width: 100%;
+      }
+
+      .gift-box {
+        min-height: 520px;
+      }
+
+      .gift-big-love {
+        width: 152px;
+        height: 152px;
+        font-size: 4.5rem;
+      }
+    }
+
     @keyframes introPop {
       from {
         opacity: 0;
@@ -1281,6 +1570,7 @@
         <button class="tab-btn" data-page="tentang">Tentang Dia</button>
         <button class="tab-btn" data-page="quotes">Quotes</button>
         <button class="tab-btn" data-page="galeri">Galeri</button>
+        <button class="tab-btn" data-page="hadiah">Hadiah</button>
         <button class="tab-btn" data-page="surat">Surat</button>
       </div>
     </div>
@@ -1301,6 +1591,15 @@
             <button class="btn primary go-page" data-page="tentang">Lihat tentang dia</button>
             <button class="btn soft go-page" data-page="quotes">Buka quotes</button>
             <button class="btn soft" id="colorBtn">Ganti pink ♡</button>
+          </div>
+
+          <div class="gift-notif">
+            <div class="gift-icon">🎁</div>
+            <div class="gift-notif-text">
+              <b>Ada hadiah buat kamu</b>
+              <span>Hadiah kecilnya dikunci dulu. Klik kalau penasaran.</span>
+            </div>
+            <button class="gift-open-btn go-page" data-page="hadiah">Buka</button>
           </div>
         </div>
 
@@ -1409,6 +1708,31 @@
           <div class="gallery-item"><img src="assets/fina4.jpg" alt="Finoyy 4"></div>
           <div class="gallery-item"><img src="assets/fina5.jpg" alt="Finoyy 5"></div>
           <div class="gallery-item"><img src="assets/fina6.jpg" alt="Finoyy 6"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="page" id="hadiah">
+      <div class="panel">
+        <div class="gift-box">
+          <span class="gift-spark gs1">♡</span>
+          <span class="gift-spark gs2">❤</span>
+          <span class="gift-spark gs3">♡</span>
+          <span class="gift-spark gs4">❤</span>
+
+          <div class="gift-center">
+            <button class="gift-big-love" id="giftHeart" type="button">❤</button>
+            <div class="gift-count">
+              <span id="giftCount">0</span>
+              <span>/ 3 klik</span>
+            </div>
+            <h2>Hadiah rahasia</h2>
+            <p>
+              Klik love-nya 3 kali. Kalau udah kebuka, hadiahnya langsung muncul.
+            </p>
+            <div class="gift-hint" id="giftHint">Klik pelan-pelan ya, Finoyy ♡</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1568,6 +1892,42 @@ function setupLikeButtons() {
 
     setupLikeButtons();
 
+
+
+    const giftHeart = document.getElementById("giftHeart");
+    const giftCount = document.getElementById("giftCount");
+    const giftHint = document.getElementById("giftHint");
+    let giftClickCount = 0;
+    const waLink = "https://wa.me/6283824505310?text=Selamat%2C%20ini%20dia%20hadiah%20kamu";
+
+    if (giftHeart) {
+      giftHeart.addEventListener("click", () => {
+        if (giftHeart.classList.contains("broken")) return;
+
+        giftClickCount += 1;
+        giftCount.textContent = giftClickCount;
+        giftHeart.classList.remove("clicked");
+        void giftHeart.offsetWidth;
+        giftHeart.classList.add("clicked");
+
+        if (giftClickCount === 1) {
+          giftHint.textContent = "Satu lagi? eh belum, masih dua lagi ♡";
+        }
+
+        if (giftClickCount === 2) {
+          giftHint.textContent = "Dikit lagi kebuka, satu klik lagi ♡";
+        }
+
+        if (giftClickCount >= 3) {
+          giftHint.textContent = "Ini dia hadiah yang kamu dapetin...";
+          giftHeart.classList.add("broken");
+
+          setTimeout(() => {
+            window.location.href = waLink;
+          }, 950);
+        }
+      });
+    }
 
     function makeHeart() {
       const heart = document.createElement("div");
