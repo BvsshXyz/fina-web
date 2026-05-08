@@ -4,21 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Untuk Fina Nailatul Izza</title>
-  <meta name="description" content="Website kecil buat Fina Nailatul Izza." />
+  <title>Untuk Finoyy</title>
+  <meta name="description" content="Halaman spesial buat Finoyy." />
 
   <style>
     :root {
-      --pink: #ff4fa3;
-      --pink2: #ff8cc6;
-      --pink3: #ffe0ef;
-      --soft: #fff5fb;
-      --dark: #351729;
-      --muted: #7d4964;
+      --bg1: #fff7fb;
+      --bg2: #ffe0ee;
+      --pink: #ff4f9a;
+      --pink2: #ff7db8;
+      --pink3: #ffc7df;
+      --pink4: #fff0f7;
+      --text: #442134;
+      --muted: #86596f;
       --white: #ffffff;
       --glass: rgba(255, 255, 255, .72);
-      --shadow: 0 22px 60px rgba(255, 79, 163, .28);
-      --radius: 28px;
+      --shadow: 0 24px 70px rgba(255, 79, 154, .22);
+      --radius: 30px;
+    }
+
+    body.theme2 {
+      --pink: #ff63b5;
+      --pink2: #ff9ed0;
+      --pink3: #ffd2e9;
+      --bg1: #fff6fd;
+      --bg2: #ffe1f5;
+    }
+
+    body.theme3 {
+      --pink: #ff3f8f;
+      --pink2: #ff83af;
+      --pink3: #ffc9d8;
+      --bg1: #fff8fa;
+      --bg2: #ffdce7;
     }
 
     * {
@@ -27,24 +45,20 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html,
+    body {
+      overflow-x: hidden;
     }
 
     body {
       min-height: 100vh;
+      color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--dark);
       background:
-        radial-gradient(circle at 10% 12%, #ffc6e2 0, transparent 30%),
-        radial-gradient(circle at 88% 16%, #ffadd6 0, transparent 28%),
-        radial-gradient(circle at 50% 100%, #ffeaf5 0, transparent 40%),
-        linear-gradient(135deg, #fff7fc, #ffd9ec 45%, #fff1f8);
-      overflow-x: hidden;
-    }
-
-    body.lock {
-      overflow: hidden;
+        radial-gradient(circle at 12% 10%, rgba(255, 167, 206, .55), transparent 28%),
+        radial-gradient(circle at 88% 20%, rgba(255, 194, 222, .7), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255, 215, 235, .8), transparent 34%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
     }
 
     a {
@@ -57,16 +71,22 @@
       display: block;
     }
 
+    button {
+      font: inherit;
+    }
+
     .loader {
       position: fixed;
       inset: 0;
       z-index: 9999;
       display: grid;
       place-items: center;
+      padding: 20px;
       background:
-        radial-gradient(circle at top left, #ffd4e8, transparent 35%),
-        linear-gradient(135deg, #fff8fb, #ffd7ea);
-      transition: opacity .7s ease, visibility .7s ease;
+        radial-gradient(circle at 20% 10%, #ffd4e8, transparent 32%),
+        radial-gradient(circle at 80% 90%, #ffc2df, transparent 30%),
+        linear-gradient(135deg, #fff8fc, #ffddea);
+      transition: opacity .75s ease, visibility .75s ease;
     }
 
     .loader.hide {
@@ -74,72 +94,139 @@
       visibility: hidden;
     }
 
-    .loader-box {
-      width: min(88vw, 360px);
-      padding: 28px 22px;
-      text-align: center;
-      border-radius: 32px;
-      background: rgba(255, 255, 255, .75);
-      backdrop-filter: blur(16px);
-      box-shadow: var(--shadow);
-      animation: pop .7s ease both;
-    }
-
-    .loader-icon {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 16px;
+    .intro-card {
+      width: min(92vw, 430px);
+      min-height: 460px;
+      position: relative;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--pink), var(--pink2));
-      color: white;
-      font-size: 36px;
-      box-shadow: 0 16px 32px rgba(255, 105, 170, .35);
-      animation: float 2.2s ease-in-out infinite;
-    }
-
-    .loader-box h1 {
-      font-size: 1.35rem;
-      color: #b8326f;
-      margin-bottom: 8px;
-    }
-
-    .loader-box p {
-      font-size: .95rem;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .bar {
-      height: 9px;
-      margin-top: 18px;
+      border-radius: 38px;
+      background: rgba(255, 255, 255, .62);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      border-radius: 99px;
-      background: #ffe2f0;
     }
 
-    .bar span {
-      display: block;
-      width: 46%;
+    .intro-card:before,
+    .intro-card:after {
+      content: "♡";
+      position: absolute;
+      color: rgba(255, 255, 255, .85);
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 10px 25px rgba(255, 79, 154, .18);
+    }
+
+    .intro-card:before {
+      font-size: 7rem;
+      left: -18px;
+      top: -22px;
+      transform: rotate(-18deg);
+    }
+
+    .intro-card:after {
+      font-size: 8rem;
+      right: -16px;
+      bottom: -36px;
+      transform: rotate(16deg);
+    }
+
+    .heart-photos {
+      position: relative;
+      width: 310px;
+      height: 295px;
+      animation: introPop .9s ease both;
+    }
+
+    .heart-photo {
+      position: absolute;
+      width: 96px;
+      height: 122px;
+      padding: 6px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .86);
+      box-shadow: 0 16px 34px rgba(255, 79, 154, .2);
+      animation: floatSoft 2.8s ease-in-out infinite;
+    }
+
+    .heart-photo img {
       height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--pink), var(--pink2));
-      animation: load 1.25s ease-in-out infinite;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .hp1 { left: 55px; top: 10px; transform: rotate(-18deg); animation-delay: .1s; }
+    .hp2 { right: 55px; top: 10px; transform: rotate(18deg); animation-delay: .2s; }
+    .hp3 { left: 18px; top: 92px; transform: rotate(-22deg); animation-delay: .3s; }
+    .hp4 { right: 18px; top: 92px; transform: rotate(22deg); animation-delay: .4s; }
+    .hp5 { left: 72px; top: 168px; transform: rotate(-10deg); animation-delay: .5s; }
+    .hp6 { right: 72px; top: 168px; transform: rotate(10deg); animation-delay: .6s; }
+
+    .intro-cat {
+      position: absolute;
+      z-index: 2;
+      width: 78px;
+      height: 78px;
+      padding: 6px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 14px 32px rgba(255, 79, 154, .18);
+      animation: catWiggle 2.5s ease-in-out infinite;
+    }
+
+    .intro-cat img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .intro-cat.c1 {
+      left: 30px;
+      bottom: 28px;
+      transform: rotate(-9deg);
+    }
+
+    .intro-cat.c2 {
+      right: 32px;
+      top: 32px;
+      transform: rotate(8deg);
+    }
+
+    .intro-text {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 26px;
+      text-align: center;
+      z-index: 3;
+    }
+
+    .intro-text h1 {
+      color: #bd3b7b;
+      font-size: 1.3rem;
+      letter-spacing: -.04em;
+      margin-bottom: 6px;
+    }
+
+    .intro-text p {
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.55;
     }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
-      padding: 13px 16px;
-      background: rgba(255, 245, 250, .74);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 105, 170, .16);
+      z-index: 100;
+      padding: 14px 16px;
+      background: rgba(255, 245, 250, .78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 79, 154, .13);
     }
 
     .nav-inner {
-      width: min(1100px, 100%);
+      width: min(1120px, 100%);
       margin: auto;
       display: flex;
       align-items: center;
@@ -148,244 +235,327 @@
     }
 
     .brand {
+      border: 0;
+      background: transparent;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 850;
-      color: #b8326f;
+      color: #bd3b7b;
+      font-weight: 950;
       letter-spacing: -.04em;
+      cursor: pointer;
     }
 
     .brand-logo {
-      width: 39px;
-      height: 39px;
+      width: 42px;
+      height: 42px;
       display: grid;
       place-items: center;
-      border-radius: 15px;
-      color: white;
-      background: linear-gradient(135deg, var(--pink), #ffc1dc);
-      box-shadow: 0 10px 24px rgba(255, 105, 170, .28);
-    }
-
-    .links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .6);
-    }
-
-    .links a {
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: .92rem;
-      font-weight: 750;
-      color: #86425f;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 12px 28px rgba(255, 79, 154, .25);
       transition: .25s ease;
     }
 
-    .links a:hover {
-      background: var(--pink);
-      color: white;
-      transform: translateY(-1px);
+    .brand:active .brand-logo {
+      transform: scale(.9) rotate(-8deg);
+      background: linear-gradient(135deg, #ff2f85, #ffb1d2);
     }
 
-    .menu {
+    .menu-btn {
       display: none;
       border: 0;
       width: 43px;
       height: 43px;
       border-radius: 15px;
       background: white;
-      color: #b8326f;
-      font-size: 1.35rem;
-      box-shadow: 0 10px 24px rgba(255, 105, 170, .18);
+      color: #bd3b7b;
+      font-size: 1.25rem;
+      box-shadow: 0 10px 24px rgba(255, 79, 154, .14);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .68);
+      box-shadow: 0 12px 30px rgba(255, 79, 154, .08);
+    }
+
+    .nav-links button {
+      border: 0;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: transparent;
+      color: #89506a;
+      font-size: .92rem;
+      font-weight: 850;
+      transition: .25s ease;
+    }
+
+    .nav-links button:hover {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink2), var(--pink3));
+      transform: translateY(-1px);
+    }
+
+    .nav-links button.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 10px 24px rgba(255, 79, 154, .22);
     }
 
     .wrap {
-      width: min(1100px, 100%);
+      width: min(1120px, 100%);
       margin: auto;
       padding: 0 16px;
     }
 
-    .hero {
-      min-height: calc(100vh - 70px);
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 34px;
-      padding: 64px 16px 44px;
+    main {
+      min-height: calc(100vh - 76px);
+      padding: 28px 0 44px;
     }
 
-    .tag {
+    .page {
+      display: none;
+      animation: pageIn .45s ease both;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .hero {
+      min-height: calc(100vh - 132px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .pill {
+      width: fit-content;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      width: fit-content;
-      padding: 9px 14px;
-      margin-bottom: 18px;
+      padding: 10px 15px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, .74);
-      color: #b8326f;
-      font-weight: 800;
-      box-shadow: 0 12px 28px rgba(255, 105, 170, .16);
-      animation: fadeUp .75s ease both;
+      background: rgba(255, 255, 255, .78);
+      color: #bd3b7b;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(255, 79, 154, .1);
+      margin-bottom: 16px;
     }
 
     .hero h1 {
-      max-width: 720px;
-      font-size: clamp(2.35rem, 7vw, 5.5rem);
-      line-height: .96;
-      letter-spacing: -.075em;
-      color: #3f1d2d;
-      animation: fadeUp .8s ease .08s both;
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: .92;
+      letter-spacing: -.085em;
+      color: #3d1d2e;
     }
 
     .hero h1 span {
       display: block;
-      color: #e74791;
+      background: linear-gradient(135deg, #ff3f92, #ff94c5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p {
       max-width: 620px;
-      margin-top: 20px;
+      margin-top: 18px;
       color: var(--muted);
-      font-size: clamp(1rem, 2.8vw, 1.18rem);
-      line-height: 1.8;
-      animation: fadeUp .8s ease .16s both;
+      line-height: 1.85;
+      font-size: 1.04rem;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
-      animation: fadeUp .8s ease .24s both;
+      margin-top: 24px;
     }
 
     .btn {
+      border: 0;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
+      gap: 8px;
       padding: 13px 18px;
       border-radius: 999px;
-      font-weight: 850;
+      font-weight: 900;
       transition: .25s ease;
     }
 
-    .btn.main {
-      color: white;
-      background: linear-gradient(135deg, var(--pink), #ff8fc1);
-      box-shadow: 0 16px 34px rgba(255, 105, 170, .34);
+    .btn.primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 18px 34px rgba(255, 79, 154, .25);
     }
 
-    .btn.second {
-      background: rgba(255, 255, 255, .74);
-      color: #b8326f;
-      box-shadow: 0 12px 26px rgba(255, 105, 170, .14);
+    .btn.soft {
+      color: #bd3b7b;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 12px 28px rgba(255, 79, 154, .11);
     }
 
     .btn:hover {
       transform: translateY(-3px);
     }
 
-    .photo-area {
+    .btn:active {
+      transform: scale(.96);
+      filter: saturate(1.4);
+    }
+
+    .visual {
+      min-height: 560px;
       position: relative;
-      min-height: 540px;
-      animation: fadeIn .9s ease .2s both;
+      display: grid;
+      place-items: center;
     }
 
-    .blob {
+    .photo-wrap {
+      width: min(88%, 430px);
+      position: relative;
+    }
+
+    .photo-glow {
       position: absolute;
-      inset: 40px 30px 30px 10px;
-      border-radius: 38% 62% 55% 45% / 44% 39% 61% 56%;
-      background: linear-gradient(135deg, #ffc1dc, #ff7eb8);
-      animation: morph 7s ease-in-out infinite;
+      inset: -22px;
+      border-radius: 46% 54% 50% 50% / 44% 42% 58% 56%;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .7), transparent 24%),
+        linear-gradient(135deg, #ffc2dc, #ff76b3);
       box-shadow: var(--shadow);
+      animation: morph 8s ease-in-out infinite;
     }
 
-    .main-photo {
-      position: absolute;
-      right: 22px;
-      top: 44px;
-      width: min(82%, 390px);
+    .photo-card {
+      position: relative;
+      z-index: 2;
+      padding: 11px;
+      border-radius: 38px;
+      background: rgba(255, 255, 255, .84);
+      box-shadow: 0 30px 70px rgba(255, 79, 154, .24);
+      transform: rotate(1.6deg);
+      overflow: visible;
+    }
+
+    .photo-card > img {
       aspect-ratio: 4 / 5;
-      padding: 10px;
-      border-radius: 36px;
-      background: rgba(255, 255, 255, .78);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 24px 60px rgba(255, 105, 170, .32);
-      transform: rotate(2.5deg);
+      object-fit: cover;
+      border-radius: 28px;
     }
 
-    .main-photo img {
+    .white-love {
+      position: absolute;
+      z-index: 4;
+      color: white;
+      font-weight: 950;
+      text-shadow: 0 8px 22px rgba(255, 79, 154, .28);
+      pointer-events: none;
+      animation: pulseLove 2.4s ease-in-out infinite;
+    }
+
+    .wl1 { left: -16px; top: 18px; font-size: 2.8rem; transform: rotate(-18deg); }
+    .wl2 { right: -18px; top: 68px; font-size: 2.2rem; transform: rotate(18deg); animation-delay: .3s; }
+    .wl3 { left: -10px; bottom: 65px; font-size: 2.1rem; transform: rotate(12deg); animation-delay: .6s; }
+    .wl4 { right: 8px; bottom: -18px; font-size: 3.3rem; transform: rotate(-12deg); animation-delay: .9s; }
+
+    .cat-pin {
+      position: absolute;
+      z-index: 5;
+      padding: 6px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 14px 30px rgba(255, 79, 154, .2);
+      animation: catFloat 3s ease-in-out infinite;
+    }
+
+    .cat-pin img {
+      width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 28px;
+      border-radius: 14px;
     }
 
-    .cat-card {
+    .cp1 { width: 88px; height: 88px; left: -36px; top: 74px; transform: rotate(-12deg); }
+    .cp2 { width: 78px; height: 78px; right: -30px; top: 190px; transform: rotate(10deg); animation-delay: .4s; }
+    .cp3 { width: 70px; height: 70px; left: 26px; bottom: -30px; transform: rotate(8deg); animation-delay: .7s; }
+
+    .tiny-note {
       position: absolute;
-      left: 8px;
-      bottom: 48px;
-      width: min(55%, 250px);
-      padding: 10px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, .8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 44px rgba(255, 105, 170, .22);
-      transform: rotate(-4deg);
-      animation: float 3.5s ease-in-out infinite;
-    }
-
-    .cat-card img {
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      z-index: 6;
+      right: -22px;
+      bottom: 54px;
+      max-width: 210px;
+      padding: 13px 15px;
       border-radius: 22px;
-    }
-
-    .mini-note {
-      position: absolute;
-      right: 10px;
-      bottom: 18px;
-      width: min(74%, 300px);
-      padding: 16px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, .8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 16px 34px rgba(255, 105, 170, .2);
-      color: #7d3e5e;
-      font-weight: 800;
+      background: rgba(255, 255, 255, .86);
+      color: #7a4b61;
+      font-weight: 850;
       line-height: 1.5;
+      box-shadow: 0 14px 32px rgba(255, 79, 154, .13);
     }
 
-    section {
-      padding: 72px 0;
+    .panel {
+      position: relative;
+      border-radius: 36px;
+      padding: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 150, 198, .18), transparent 28%),
+        rgba(255, 255, 255, .64);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, .76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .section-head {
-      margin-bottom: 26px;
+    .panel:before {
+      content: "♡";
+      position: absolute;
+      right: -16px;
+      top: -26px;
+      font-size: 9rem;
+      color: rgba(255, 255, 255, .55);
+      font-weight: 950;
+      line-height: 1;
+      transform: rotate(12deg);
+    }
+
+    .head {
+      position: relative;
+      z-index: 2;
       text-align: center;
+      margin-bottom: 24px;
     }
 
-    .section-head small {
-      color: #e74791;
-      font-weight: 900;
-      letter-spacing: .12em;
+    .head small {
+      color: var(--pink);
+      font-weight: 950;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
 
-    .section-head h2 {
+    .head h2 {
       margin-top: 8px;
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      color: #3d1d2e;
+      font-size: clamp(2rem, 5vw, 3.35rem);
       line-height: 1;
-      letter-spacing: -.055em;
-      color: #3f1d2d;
+      letter-spacing: -.06em;
     }
 
     .cards {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
@@ -393,93 +563,99 @@
 
     .card {
       padding: 22px;
-      border-radius: var(--radius);
-      background: var(--glass);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 14px 34px rgba(255, 105, 170, .16);
-      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 16px 36px rgba(255, 79, 154, .1);
       transition: .25s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 42px rgba(255, 105, 170, .22);
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, .95);
     }
 
     .card .icon {
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
+      border-radius: 18px;
+      color: #fff;
+      font-size: 1.32rem;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
       margin-bottom: 14px;
-      border-radius: 17px;
-      background: linear-gradient(135deg, #ff85bb, #ffd0e5);
-      color: white;
-      font-size: 1.35rem;
     }
 
     .card h3 {
       margin-bottom: 9px;
-      color: #4a2132;
-      font-size: 1.15rem;
+      color: #4b2436;
+      font-size: 1.08rem;
     }
 
     .card p {
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.78;
       font-size: .98rem;
     }
 
-    .quote-box {
+    .quotes-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .quote-photo {
-      min-height: 430px;
-      border-radius: 34px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: white;
-      padding: 10px;
-    }
-
-    .quote-photo img {
-      height: 100%;
-      object-fit: cover;
-      border-radius: 26px;
-    }
-
-    .quote-content {
-      display: grid;
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
     .quote {
-      padding: 22px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, .74);
-      box-shadow: 0 14px 34px rgba(255, 105, 170, .15);
-      color: #6f3552;
-      line-height: 1.75;
-      font-weight: 700;
+      min-height: 170px;
+      position: relative;
+      padding: 24px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .84);
+      color: #6d4056;
+      line-height: 1.78;
+      font-weight: 800;
+      box-shadow: 0 16px 36px rgba(255, 79, 154, .1);
+      overflow: hidden;
+      transition: .25s ease;
     }
 
-    .gallery {
+    .quote:hover {
+      transform: translateY(-5px);
+      background: #fff;
+    }
+
+    .quote:before {
+      content: "“";
+      position: absolute;
+      left: 16px;
+      top: -18px;
+      color: rgba(255, 79, 154, .16);
+      font-size: 6rem;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .quote span {
+      position: relative;
+      z-index: 2;
+    }
+
+    .gallery-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
 
     .gallery-item {
-      min-height: 260px;
+      position: relative;
       padding: 9px;
-      border-radius: 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .84);
+      box-shadow: 0 16px 34px rgba(255, 79, 154, .11);
       overflow: hidden;
-      background: rgba(255, 255, 255, .76);
-      box-shadow: 0 16px 38px rgba(255, 105, 170, .16);
       transition: .25s ease;
     }
 
@@ -487,110 +663,99 @@
       transform: translateY(-5px) rotate(.6deg);
     }
 
-    .gallery-item.big {
-      grid-column: span 2;
-      min-height: 360px;
+    .gallery-item:after {
+      content: "♡";
+      position: absolute;
+      right: 14px;
+      bottom: 8px;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 950;
+      text-shadow: 0 8px 20px rgba(255, 79, 154, .35);
     }
 
     .gallery-item img {
-      height: 100%;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-radius: 22px;
+      border-radius: 20px;
     }
 
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .love-letter {
+    .letter {
       position: relative;
-      overflow: hidden;
-      padding: 30px;
-      border-radius: 36px;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px 30px;
+      border-radius: 38px;
       background:
-        radial-gradient(circle at top right, rgba(255, 105, 170, .16), transparent 32%),
-        rgba(255, 255, 255, .74);
-      backdrop-filter: blur(14px);
+        radial-gradient(circle at top right, rgba(255, 127, 184, .16), transparent 28%),
+        rgba(255, 255, 255, .8);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, .78);
       text-align: center;
+      overflow: hidden;
     }
 
-    .love-letter:before,
-    .love-letter:after {
+    .letter:before,
+    .letter:after {
       content: "♡";
       position: absolute;
-      color: rgba(255, 105, 170, .16);
-      font-size: 9rem;
-      font-weight: 900;
+      color: rgba(255, 255, 255, .75);
+      font-size: 8rem;
+      font-weight: 950;
       line-height: 1;
+      text-shadow: 0 12px 30px rgba(255, 79, 154, .13);
     }
 
-    .love-letter:before {
-      left: -20px;
-      top: -26px;
-      transform: rotate(-18deg);
+    .letter:before {
+      left: -8px;
+      top: -22px;
+      transform: rotate(-16deg);
     }
 
-    .love-letter:after {
-      right: -16px;
-      bottom: -36px;
-      transform: rotate(16deg);
+    .letter:after {
+      right: -6px;
+      bottom: -34px;
+      transform: rotate(14deg);
     }
 
-    .love-letter h2 {
+    .letter h2 {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       font-size: clamp(2rem, 5vw, 3.3rem);
+      letter-spacing: -.06em;
       line-height: 1;
-      letter-spacing: -.055em;
-      color: #3f1d2d;
       margin-bottom: 16px;
+      color: #3d1d2e;
     }
 
-    .love-letter p {
+    .letter p {
       position: relative;
-      z-index: 1;
-      max-width: 780px;
-      margin: auto;
+      z-index: 2;
       color: var(--muted);
-      line-height: 1.85;
-      font-size: 1.05rem;
+      line-height: 1.95;
+      font-size: 1.04rem;
+      font-weight: 600;
     }
 
     footer {
-      padding: 28px 16px 40px;
+      padding: 12px 16px 36px;
       text-align: center;
-      color: #995875;
-      font-weight: 800;
+      color: #985d78;
+      font-weight: 850;
     }
 
-    .heart {
+    .heart-fall {
       position: fixed;
       pointer-events: none;
-      z-index: 5;
-      color: rgba(255, 105, 170, .42);
+      z-index: 1;
+      color: rgba(255, 255, 255, .75);
+      text-shadow: 0 8px 20px rgba(255, 79, 154, .22);
       animation: fall linear forwards;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: .7s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes pop {
+    @keyframes introPop {
       from {
         opacity: 0;
-        transform: scale(.92) translateY(10px);
+        transform: scale(.88) translateY(16px);
       }
       to {
         opacity: 1;
@@ -598,50 +763,61 @@
       }
     }
 
-    @keyframes load {
-      0% {
-        transform: translateX(-120%);
-      }
-      100% {
-        transform: translateX(240%);
-      }
-    }
-
-    @keyframes float {
+    @keyframes floatSoft {
       0%, 100% {
-        transform: translateY(0) rotate(-3deg);
+        margin-top: 0;
       }
       50% {
-        transform: translateY(-12px) rotate(3deg);
+        margin-top: -8px;
       }
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
+    @keyframes catWiggle {
+      0%, 100% {
+        margin-top: 0;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      50% {
+        margin-top: -9px;
       }
     }
 
-    @keyframes fadeIn {
+    @keyframes pageIn {
       from {
         opacity: 0;
+        transform: translateY(16px) scale(.985);
       }
       to {
         opacity: 1;
+        transform: translateY(0) scale(1);
       }
     }
 
     @keyframes morph {
       0%, 100% {
-        border-radius: 38% 62% 55% 45% / 44% 39% 61% 56%;
+        border-radius: 46% 54% 50% 50% / 44% 42% 58% 56%;
       }
       50% {
-        border-radius: 58% 42% 38% 62% / 55% 58% 42% 45%;
+        border-radius: 58% 42% 44% 56% / 55% 58% 42% 45%;
+      }
+    }
+
+    @keyframes pulseLove {
+      0%, 100% {
+        transform: scale(1) rotate(var(--r, 0deg));
+        opacity: .88;
+      }
+      50% {
+        transform: scale(1.12) rotate(var(--r, 0deg));
+        opacity: 1;
+      }
+    }
+
+    @keyframes catFloat {
+      0%, 100% {
+        margin-top: 0;
+      }
+      50% {
+        margin-top: -9px;
       }
     }
 
@@ -651,165 +827,59 @@
         opacity: .75;
       }
       to {
-        transform: translateY(110vh) rotate(220deg);
+        transform: translateY(110vh) rotate(230deg);
         opacity: 0;
       }
     }
 
-
-    .page-section {
-      display: none;
-      min-height: calc(100vh - 70px);
-      animation: pageSoft .42s ease both;
-    }
-
-    .page-section.active {
-      display: grid;
-    }
-
-    section.page-section.active {
-      display: block;
-    }
-
-    .links a.active-link {
-      background: linear-gradient(135deg, var(--pink), var(--pink2));
-      color: white;
-      box-shadow: 0 10px 24px rgba(255, 79, 163, .24);
-    }
-
-    .cat-bubble {
-      position: absolute;
-      z-index: 4;
-      width: 86px;
-      height: 86px;
-      padding: 7px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, .8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 16px 36px rgba(255, 79, 163, .22);
-    }
-
-    .cat-bubble img {
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-    }
-
-    .cat-bubble-1 {
-      right: 0;
-      top: 18px;
-      transform: rotate(8deg);
-      animation: float 3.1s ease-in-out infinite;
-    }
-
-    .cat-bubble-2 {
-      left: 30px;
-      top: 120px;
-      transform: rotate(-9deg);
-      animation: float 3.8s ease-in-out infinite;
-    }
-
-    .cat-card {
-      z-index: 4;
-      opacity: .95;
-    }
-
-    .gallery-note {
-      margin: 18px auto 0;
-      max-width: 680px;
-      padding: 16px 18px;
-      text-align: center;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, .72);
-      color: #8a3d62;
-      font-weight: 750;
-      box-shadow: 0 14px 34px rgba(255, 79, 163, .14);
-    }
-
-    @keyframes pageSoft {
-      from {
-        opacity: 0;
-        transform: translateY(14px) scale(.985);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @media (max-width: 840px) {
-      .menu {
+    @media (max-width: 880px) {
+      .menu-btn {
         display: grid;
         place-items: center;
       }
 
-      .links {
+      .nav-links {
         position: fixed;
-        top: 68px;
+        top: 72px;
         left: 16px;
         right: 16px;
         display: grid;
-        gap: 5px;
-        padding: 10px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, .94);
-        box-shadow: var(--shadow);
+        border-radius: 24px;
         opacity: 0;
         pointer-events: none;
         transform: translateY(-10px);
         transition: .25s ease;
+        box-shadow: var(--shadow);
       }
 
-      .links.open {
+      .nav-links.open {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
       }
 
-      .links a {
-        text-align: center;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 46px;
-      }
-
-      .photo-area {
-        min-height: 470px;
-      }
-
-      .main-photo {
-        right: 8px;
-        width: 78%;
-      }
-
-      .cat-card {
-        width: 48%;
-      }
-
-      .mini-note {
-        right: 0;
-        width: 78%;
-      }
-
+      .hero,
       .cards,
-      .quote-box,
-      .gallery,
-      .cat-grid {
+      .quotes-grid,
+      .gallery-grid {
         grid-template-columns: 1fr;
       }
 
-      .gallery-item.big {
-        grid-column: span 1;
+      .visual {
+        min-height: 500px;
       }
 
-      .quote-photo {
-        min-height: 340px;
+      .photo-wrap {
+        width: min(84%, 410px);
+      }
+
+      .tiny-note {
+        right: -8px;
+        bottom: 35px;
       }
     }
 
-    @media (max-width: 470px) {
+    @media (max-width: 520px) {
       .brand span:last-child {
         max-width: 190px;
         overflow: hidden;
@@ -817,345 +887,343 @@
         text-overflow: ellipsis;
       }
 
-      .hero {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .photo-area {
+      .intro-card {
         min-height: 430px;
       }
 
-      .main-photo {
-        width: 83%;
-        top: 36px;
+      .heart-photos {
+        width: 285px;
+        height: 270px;
       }
 
-      .cat-card {
-        bottom: 58px;
+      .heart-photo {
+        width: 86px;
+        height: 110px;
       }
 
-      .mini-note {
-        font-size: .9rem;
+      .hp1 { left: 52px; top: 8px; }
+      .hp2 { right: 52px; top: 8px; }
+      .hp3 { left: 16px; top: 84px; }
+      .hp4 { right: 16px; top: 84px; }
+      .hp5 { left: 68px; top: 154px; }
+      .hp6 { right: 68px; top: 154px; }
+
+      .hero {
+        gap: 20px;
       }
 
-      section {
-        padding: 58px 0;
+      .visual {
+        min-height: 430px;
+      }
+
+      .photo-wrap {
+        width: 82%;
+      }
+
+      .cp1 {
+        width: 68px;
+        height: 68px;
+        left: -22px;
+        top: 58px;
+      }
+
+      .cp2 {
+        width: 62px;
+        height: 62px;
+        right: -20px;
+        top: 150px;
+      }
+
+      .cp3 {
+        width: 58px;
+        height: 58px;
+        left: 18px;
+        bottom: -22px;
+      }
+
+      .tiny-note {
+        max-width: 160px;
+        font-size: .82rem;
+        padding: 11px 12px;
+      }
+
+      .panel {
+        padding: 24px 16px;
+      }
+
+      .quote {
+        min-height: auto;
       }
     }
   </style>
 </head>
 
-<body class="lock">
+<body>
   <div class="loader" id="loader">
-    <div class="loader-box">
-      <div class="loader-icon">🐱</div>
-      <h1>Sebentar ya, Fina...</h1>
-      <p>Web kecil ini lagi dirapihin dulu biar bukanya halus, nggak langsung jleg.</p>
-      <div class="bar"><span></span></div>
+    <div class="intro-card">
+      <div class="heart-photos">
+        <div class="heart-photo hp1"><img src="assets/fina1.jpg" alt="Fina 1"></div>
+        <div class="heart-photo hp2"><img src="assets/fina2.jpg" alt="Fina 2"></div>
+        <div class="heart-photo hp3"><img src="assets/fina3.jpg" alt="Fina 3"></div>
+        <div class="heart-photo hp4"><img src="assets/fina4.jpg" alt="Fina 4"></div>
+        <div class="heart-photo hp5"><img src="assets/fina5.jpg" alt="Fina 5"></div>
+        <div class="heart-photo hp6"><img src="assets/fina6.jpg" alt="Fina 6"></div>
+      </div>
+
+      <div class="intro-cat c1"><img src="assets/kucing1.jpg" alt="Kucing"></div>
+      <div class="intro-cat c2"><img src="assets/kucing2.jpg" alt="Kucing"></div>
+
+      <div class="intro-text">
+        <h1>Sebentar ya, Finoyy...</h1>
+        <p>Lagi dibuka pelan-pelan biar manis dan halus.</p>
+      </div>
     </div>
   </div>
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#home" class="brand">
+      <button class="brand" data-page="home">
         <span class="brand-logo">♡</span>
         <span>Fina Nailatul Izza</span>
-      </a>
+      </button>
 
-      <button class="menu" id="menuBtn" aria-label="Buka menu">☰</button>
+      <button class="menu-btn" id="menuBtn">☰</button>
 
-      <div class="links" id="links">
-        <a href="#home">Beranda</a>
-        <a href="#tentang">Tentang Dia</a>
-        <a href="#kata">Kata-kata</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#surat">Surat</a>
+      <div class="nav-links" id="navLinks">
+        <button class="tab-btn active" data-page="home">Beranda</button>
+        <button class="tab-btn" data-page="tentang">Tentang Dia</button>
+        <button class="tab-btn" data-page="quotes">Quotes</button>
+        <button class="tab-btn" data-page="galeri">Galeri</button>
+        <button class="tab-btn" data-page="surat">Surat</button>
       </div>
     </div>
   </nav>
 
-  <main id="home" class="hero wrap page-section active">
-    <div>
-      <div class="tag">🌷 Web kecil buat orang spesial</div>
-
-      <h1>
-        Hai,
-        <span>Fina Nailatul Izza</span>
-      </h1>
-
-      <p>
-        Ini bukan web yang sok mewah. Ini cuma tempat kecil yang aku bikin buat
-        nyimpen rasa sayang, foto lucu, dan beberapa kalimat yang mungkin nggak
-        sempurna, tapi beneran dari hati.
-      </p>
-
-      <div class="actions">
-        <a href="#tentang" class="btn main">Lihat tentang Fina</a>
-        <a href="#surat" class="btn second">Baca surat kecil</a>
-      </div>
-    </div>
-
-    <div class="photo-area">
-      <div class="blob"></div>
-
-      <div class="main-photo">
-        <img src="assets/fina1.jpg" alt="Foto Fina Nailatul Izza" loading="lazy" />
-      </div>
-
-      <div class="cat-card">
-        <img src="assets/kucing1.jpg" alt="Dekorasi kucing lucu" loading="lazy" />
-      </div>
-
-      <div class="cat-bubble cat-bubble-1">
-        <img src="assets/kucing2.jpg" alt="Dekorasi kucing kecil" loading="lazy" />
-      </div>
-
-      <div class="cat-bubble cat-bubble-2">
-        <img src="assets/kucing3.jpg" alt="Dekorasi kucing kecil" loading="lazy" />
-      </div>
-
-      <div class="mini-note">
-        Kalau dunia lagi rame, semoga halaman ini bisa jadi tempat kecil yang adem buat kamu.
-      </div>
-    </div>
-  </main>
-
-  <section id="tentang" class="page-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <small>Tentang Dia</small>
-        <h2>Namanya Finoyy, orang paling gemes di halaman ini</h2>
-      </div>
-
-      <div class="cards">
-        <div class="card reveal">
-          <div class="icon">🌸</div>
-          <h3>Si Finoyy</h3>
+  <main class="wrap">
+    <section class="page active" id="home">
+      <div class="hero">
+        <div>
+          <div class="pill">🌷 Halaman kecil buat orang spesial</div>
+          <h1>Hai, <span>Finoyy</span></h1>
           <p>
-            Nama panggilannya Finoyy. Dia baik, lucu, dan kadang suka ngambek.
-            Tapi justru itu yang bikin dia punya tempat sendiri di hati.
+            Ini tempat kecil yang isinya kamu, warna favorit kamu, dan hal-hal lucu
+            yang bikin aku senyum tiap inget kamu.
           </p>
-        </div>
 
-        <div class="card reveal">
-          <div class="icon">💗</div>
-          <h3>Yang aku suka dari dia</h3>
-          <p>
-            Dia cantik, pengertian, dan punya cara sendiri buat bikin hari biasa
-            jadi terasa lebih enak. Pokoknya Finoyy itu paket pink lengkap.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon">🎮</div>
-          <h3>Hobinya</h3>
-          <p>
-            Finoyy suka main Roblox dan tidur. Kombinasi yang sederhana,
-            tapi entah kenapa tetap lucu kalau itu dia yang ngelakuin.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon">🥟</div>
-          <h3>Favoritnya</h3>
-          <p>
-            Makanan favoritnya dimsum mentai, warna favoritnya pink.
-            Jadi web ini wajib pink, karena kalau nggak pink nanti kurang Finoyy.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon">😾</div>
-          <h3>Lucunya dia</h3>
-          <p>
-            Hal kecil yang bikin dia lucu itu kelakuannya. Apalagi kalau udah
-            keluar kata-kata khasnya: “malesin”, “hmm”, atau “ga”.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="icon">📅</div>
-          <h3>9 Desember</h3>
-          <p>
-            Tanggal 9 Desember jadi salah satu tanggal yang spesial.
-            Bukan cuma angka di kalender, tapi bagian kecil dari cerita kalian.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kata" class="page-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <small>Kata-kata</small>
-        <h2>Buat Fina, pelan-pelan aja bacanya</h2>
-      </div>
-
-      <div class="quote-box">
-        <div class="quote-photo reveal">
-          <img src="assets/fina2.jpg" alt="Foto Fina" loading="lazy" />
-        </div>
-
-        <div class="quote-content">
-          <div class="quote reveal">
-            “Aku nggak janji bisa bikin semua hari kamu sempurna, tapi aku pengen jadi salah satu alasan kamu tetap senyum di hari yang berat.”
+          <div class="actions">
+            <button class="btn primary go-page" data-page="tentang">Lihat tentang dia</button>
+            <button class="btn soft go-page" data-page="quotes">Buka quotes</button>
+            <button class="btn soft" id="colorBtn">Ganti pink ♡</button>
           </div>
+        </div>
 
-          <div class="quote reveal">
-            “Kalau nanti kamu capek, inget ya, ada aku yang pengen denger cerita kamu. Mau ceritanya panjang, random, atau cuma satu kata: capek.”
-          </div>
+        <div class="visual">
+          <div class="photo-wrap">
+            <div class="photo-glow"></div>
 
-          <div class="quote reveal">
-            “Fina, kamu itu bukan cuma cantik di foto. Kamu cantik di cara kamu hadir, di cara kamu bikin hal kecil jadi terasa penting.”
-          </div>
+            <div class="photo-card">
+              <img src="assets/fina1.jpg" alt="Foto Finoyy">
 
-          <div class="quote reveal">
-            “Website ini mungkin sederhana, tapi niatnya nggak kecil. Ini aku bikin biar kamu punya satu halaman yang isinya kamu, cuma kamu.”
+              <span class="white-love wl1">♡</span>
+              <span class="white-love wl2">♡</span>
+              <span class="white-love wl3">♡</span>
+              <span class="white-love wl4">♡</span>
+
+              <div class="cat-pin cp1"><img src="assets/kucing1.jpg" alt="Dekorasi kucing"></div>
+              <div class="cat-pin cp2"><img src="assets/kucing2.jpg" alt="Dekorasi kucing"></div>
+              <div class="cat-pin cp3"><img src="assets/kucing3.jpg" alt="Dekorasi kucing"></div>
+
+              <div class="tiny-note">Pink, love, kucing, dan Finoyy. Paket lengkap.</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="galeri" class="page-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <small>Galeri</small>
-        <h2>Sedikit foto, banyak rasa</h2>
+    <section class="page" id="tentang">
+      <div class="panel">
+        <div class="head">
+          <small>Tentang Dia</small>
+          <h2>Namanya Finoyy, orang paling gemes di halaman ini</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="icon">🌸</div>
+            <h3>Si Finoyy</h3>
+            <p>Nama panggilannya Finoyy. Dia baik, lucu, dan suka ngambek. Tapi justru itu yang bikin dia makin gemes.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">💗</div>
+            <h3>Yang aku suka</h3>
+            <p>Aku suka dia karena dia cantik dan pengertian. Dia punya cara sendiri buat bikin hari biasa terasa beda.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Hobinya</h3>
+            <p>Finoyy suka main Roblox dan tidur. Sederhana, tapi tetap lucu kalau itu dia yang ngelakuin.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🥟</div>
+            <h3>Favoritnya</h3>
+            <p>Makanan favoritnya dimsum mentai, warna favoritnya pink. Jadi halaman ini memang wajib pink.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">😾</div>
+            <h3>Lucunya dia</h3>
+            <p>Hal kecil yang bikin dia lucu itu kelakuannya. Apalagi kalau udah bilang “malesin”, “hmm”, atau “ga”.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📅</div>
+            <h3>9 Desember</h3>
+            <p>9 Desember jadi tanggal spesial. Bukan cuma angka di kalender, tapi bagian kecil dari cerita kalian.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="gallery">
-        <div class="gallery-item big reveal">
-          <img src="assets/fina3.jpg" alt="Foto Fina 3" loading="lazy" />
+    <section class="page" id="quotes">
+      <div class="panel">
+        <div class="head">
+          <small>Quotes</small>
+          <h2>Kalimat kecil buat Finoyy</h2>
         </div>
 
-        <div class="gallery-item reveal">
-          <img src="assets/fina4.jpg" alt="Foto Fina 4" loading="lazy" />
-        </div>
-
-        <div class="gallery-item reveal">
-          <img src="assets/fina5.jpg" alt="Foto Fina 5" loading="lazy" />
-        </div>
-
-        <div class="gallery-item big reveal">
-          <img src="assets/fina6.jpg" alt="Foto Fina 6" loading="lazy" />
-        </div>
-      </div>
-
-      <p class="gallery-note reveal">Kucingnya aku taruh jadi dekorasi di sekitar foto Finoyy, biar fokus galerinya tetap ke dia.</p>
-
-        <div class="gallery-item reveal">
-          <img src="assets/kucing2.jpg" alt="Kucing 2" loading="lazy" />
-        </div>
-
-        <div class="gallery-item reveal">
-          <img src="assets/kucing3.jpg" alt="Kucing 3" loading="lazy" />
+        <div class="quotes-grid">
+          <div class="quote"><span>Aku nggak janji bisa bikin semua hari kamu sempurna, tapi aku pengen jadi salah satu alasan kamu tetap senyum di hari yang berat.</span></div>
+          <div class="quote"><span>Kalau nanti kamu capek, inget ya, ada aku yang pengen denger cerita kamu. Panjang, random, atau cuma satu kata: capek.</span></div>
+          <div class="quote"><span>Finoyy, kamu itu bukan cuma cantik di foto. Kamu cantik di cara kamu hadir dan bikin hal kecil terasa penting.</span></div>
+          <div class="quote"><span>Pas kamu bilang “malesin”, “hmm”, atau “ga”, anehnya malah bikin kamu makin lucu.</span></div>
+          <div class="quote"><span>Aku suka kamu bukan karena satu alasan besar, tapi karena banyak hal kecil yang diam-diam bikin aku nyaman.</span></div>
+          <div class="quote"><span>Kalau pink punya bentuk paling manis, mungkin bentuknya ya kamu lagi ngambek tapi tetap gemes.</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="surat" class="page-section">
-    <div class="wrap">
-      <div class="love-letter reveal">
-        <h2>Surat kecil buat Fina</h2>
+    <section class="page" id="galeri">
+      <div class="panel">
+        <div class="head">
+          <small>Galeri</small>
+          <h2>Foto Finoyy, karena yang utama tetap dia</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="assets/fina1.jpg" alt="Finoyy 1"></div>
+          <div class="gallery-item"><img src="assets/fina2.jpg" alt="Finoyy 2"></div>
+          <div class="gallery-item"><img src="assets/fina3.jpg" alt="Finoyy 3"></div>
+          <div class="gallery-item"><img src="assets/fina4.jpg" alt="Finoyy 4"></div>
+          <div class="gallery-item"><img src="assets/fina5.jpg" alt="Finoyy 5"></div>
+          <div class="gallery-item"><img src="assets/fina6.jpg" alt="Finoyy 6"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="surat">
+      <div class="letter">
+        <h2>Surat kecil buat Finoyy</h2>
         <p>
-          Fina, makasih udah jadi kamu. Makasih udah hadir dengan cara yang nggak bisa
-          aku jelasin pendek-pendek. Aku bikin halaman ini bukan karena aku paling jago,
-          tapi karena aku pengen ada sesuatu yang bisa kamu buka kapan aja. Pas lagi seneng,
-          pas lagi gabut, atau pas cuma pengen lihat sesuatu yang dibuat khusus buat kamu.
-          Semoga kamu suka ya.
+          Finoyy, makasih ya udah jadi kamu. Kamu itu baik, lucu, cantik,
+          pengertian, dan kadang suka ngambek dengan cara yang tetap bikin gemes.
+          Aku suka hal-hal kecil dari kamu, termasuk cara kamu ngomong “malesin”,
+          “hmm”, atau “ga”. Halaman ini aku bikin karena aku pengen ada sesuatu
+          yang khusus buat kamu. Semoga tiap kali kamu buka ini, kamu inget kalau
+          ada orang yang seneng banget punya kamu.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer>
-    Dibuat khusus buat Fina Nailatul Izza ♡
-  </footer>
+  <footer>Dibuat khusus buat Finoyy ♡</footer>
 
   <script>
     const loader = document.getElementById("loader");
     const menuBtn = document.getElementById("menuBtn");
-    const links = document.getElementById("links");
+    const navLinks = document.getElementById("navLinks");
+    const tabs = document.querySelectorAll(".tab-btn");
+    const pages = document.querySelectorAll(".page");
+    const goButtons = document.querySelectorAll(".go-page");
+    const brand = document.querySelector(".brand");
+    const colorBtn = document.getElementById("colorBtn");
 
     window.addEventListener("load", () => {
       setTimeout(() => {
         loader.classList.add("hide");
-        document.body.classList.remove("lock");
-      }, 900);
+      }, 1800);
     });
 
     menuBtn.addEventListener("click", () => {
-      links.classList.toggle("open");
-      menuBtn.textContent = links.classList.contains("open") ? "×" : "☰";
+      navLinks.classList.toggle("open");
+      menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
     });
 
-    const pageSections = document.querySelectorAll(".page-section");
-    const navLinks = document.querySelectorAll(".links a");
-
     function openPage(id) {
-      pageSections.forEach((section) => {
-        section.classList.toggle("active", section.id === id);
-      });
+      pages.forEach(page => page.classList.remove("active"));
+      tabs.forEach(tab => tab.classList.remove("active"));
 
-      navLinks.forEach((link) => {
-        link.classList.toggle("active-link", link.getAttribute("href") === "#" + id);
-      });
+      const page = document.getElementById(id);
+      const tab = document.querySelector('.tab-btn[data-page="' + id + '"]');
 
-      links.classList.remove("open");
+      if (page) page.classList.add("active");
+      if (tab) tab.classList.add("active");
+
+      navLinks.classList.remove("open");
       menuBtn.textContent = "☰";
+
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", "#" + id);
     }
 
-    navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const id = link.getAttribute("href").replace("#", "");
-        openPage(id);
-      });
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => openPage(tab.dataset.page));
     });
 
-    const firstPage = location.hash ? location.hash.replace("#", "") : "home";
-    if (document.getElementById(firstPage)) {
-      openPage(firstPage);
-    } else {
-      openPage("home");
+    goButtons.forEach(btn => {
+      btn.addEventListener("click", () => openPage(btn.dataset.page));
+    });
+
+    brand.addEventListener("click", () => openPage("home"));
+
+    const hash = window.location.hash.replace("#", "");
+    if (hash && document.getElementById(hash)) {
+      openPage(hash);
     }
 
-    const reveals = document.querySelectorAll(".reveal");
+    let themeIndex = 1;
+    colorBtn.addEventListener("click", () => {
+      document.body.classList.remove("theme2", "theme3");
+      themeIndex++;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, {
-      threshold: 0.14
+      if (themeIndex === 2) {
+        document.body.classList.add("theme2");
+      }
+
+      if (themeIndex === 3) {
+        document.body.classList.add("theme3");
+      }
+
+      if (themeIndex > 3) {
+        themeIndex = 1;
+      }
     });
-
-    reveals.forEach((item) => observer.observe(item));
 
     function makeHeart() {
       const heart = document.createElement("div");
-      heart.className = "heart";
-      const items = ["♡", "❤", "✦", "❀"];
-      heart.textContent = items[Math.floor(Math.random() * items.length)];
+      heart.className = "heart-fall";
+      const icons = ["♡", "❤", "✦", "❀"];
+      heart.textContent = icons[Math.floor(Math.random() * icons.length)];
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 15 + 12 + "px";
-      heart.style.animationDuration = Math.random() * 3 + 5 + "s";
+      heart.style.fontSize = (Math.random() * 16 + 12) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 5) + "s";
       document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 8500);
+      setTimeout(() => heart.remove(), 8500);
     }
 
-    setInterval(makeHeart, 850);
+    setInterval(makeHeart, 900);
   </script>
 </body>
 </html>
