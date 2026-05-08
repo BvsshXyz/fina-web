@@ -1472,6 +1472,135 @@
       }
     }
 
+
+    .photo-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 120, 184, .24), transparent 35%),
+        rgba(55, 18, 38, .72);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .28s ease, visibility .28s ease;
+    }
+
+    .photo-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-photo-card {
+      position: relative;
+      width: min(92vw, 520px);
+      max-height: 86vh;
+      padding: 10px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 26px 80px rgba(255, 79, 154, .3);
+      transform: scale(.94) translateY(14px);
+      transition: transform .28s ease;
+    }
+
+    .photo-modal.open .modal-photo-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-photo-card img {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 25px;
+      background: #fff0f7;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: -10px;
+      top: -12px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 1.35rem;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 12px 28px rgba(255, 79, 154, .28);
+    }
+
+    .modal-caption {
+      margin-top: 10px;
+      text-align: center;
+      color: #bd3b7b;
+      font-weight: 900;
+    }
+
+    .gift-result {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 79, 154, .14), transparent 32%),
+        rgba(255, 255, 255, .88);
+      box-shadow: 0 16px 34px rgba(255, 79, 154, .12);
+      animation: giftResultIn .45s ease both;
+    }
+
+    .gift-result.show {
+      display: block;
+    }
+
+    .gift-result h3 {
+      color: #bd3b7b;
+      font-size: 1.35rem;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+
+    .gift-result p {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .gift-claim-btn {
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 14px 30px rgba(255, 79, 154, .22);
+      transition: .22s ease;
+    }
+
+    .gift-claim-btn:active {
+      transform: scale(.96);
+    }
+
+    @keyframes giftResultIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
     @keyframes introPop {
       from {
         opacity: 0;
@@ -1889,12 +2018,29 @@
               Klik love-nya 3 kali. Kalau udah kebuka, hadiahnya langsung muncul.
             </p>
             <div class="gift-hint" id="giftHint">Klik pelan-pelan ya, Finoyy ♡</div>
+
+            <div class="gift-result" id="giftResult">
+              <h3>Selamat, ini dia hadiah kamu ♡</h3>
+              <p>
+                Hadiahnya sudah kebuka. Tinggal ambil aja pelan-pelan.
+              </p>
+              <button class="gift-claim-btn" id="giftClaimBtn" type="button">Ambil hadiah</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+
+
+  <div class="photo-modal" id="photoModal">
+    <div class="modal-photo-card">
+      <button class="modal-close" id="modalClose" type="button">×</button>
+      <img src="" alt="Foto Finoyy fullscreen" id="modalImage">
+      <div class="modal-caption" id="modalCaption">Foto Finoyy ♡</div>
+    </div>
+  </div>
 
   <footer>Dibuat khusus buat Finoyy ♡</footer>
 
@@ -2122,9 +2268,54 @@ function setupLikeButtons() {
     updateSlider();
 
 
+
+    const photoModal = document.getElementById("photoModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    const modalClose = document.getElementById("modalClose");
+
+    function openPhotoModal(src, caption) {
+      if (!photoModal || !modalImage) return;
+      modalImage.src = src;
+      if (modalCaption) modalCaption.textContent = caption || "Foto Finoyy ♡";
+      photoModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePhotoModal() {
+      if (!photoModal) return;
+      photoModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".slide-item img, .gallery-item img").forEach((img, index) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openPhotoModal(img.getAttribute("src"), "Foto Finoyy " + (index + 1) + " ♡");
+      });
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener("click", closePhotoModal);
+    }
+
+    if (photoModal) {
+      photoModal.addEventListener("click", (e) => {
+        if (e.target === photoModal) closePhotoModal();
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePhotoModal();
+    });
+
+
     const giftHeart = document.getElementById("giftHeart");
     const giftCount = document.getElementById("giftCount");
     const giftHint = document.getElementById("giftHint");
+    const giftResult = document.getElementById("giftResult");
+    const giftClaimBtn = document.getElementById("giftClaimBtn");
     let giftClickCount = 0;
     const waLink = "https://wa.me/6283824505310?text=Selamat%2C%20ini%20dia%20hadiah%20kamu";
 
@@ -2151,9 +2342,16 @@ function setupLikeButtons() {
           giftHeart.classList.add("broken");
 
           setTimeout(() => {
-            window.location.href = waLink;
-          }, 950);
+            if (giftResult) giftResult.classList.add("show");
+          }, 650);
         }
+      });
+    }
+
+
+    if (giftClaimBtn) {
+      giftClaimBtn.addEventListener("click", () => {
+        window.location.href = waLink;
       });
     }
 
