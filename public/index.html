@@ -783,6 +783,139 @@
       animation: fall linear forwards;
     }
 
+
+    .home-mini-photo {
+      position: absolute;
+      z-index: 7;
+      width: 116px;
+      height: 148px;
+      padding: 7px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .9);
+      box-shadow: 0 16px 34px rgba(255, 79, 154, .2);
+      animation: miniPhotoFloat 3.2s ease-in-out infinite;
+    }
+
+    .home-mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+
+    .mf1 {
+      left: -38px;
+      top: 230px;
+      transform: rotate(-10deg);
+    }
+
+    .mf2 {
+      right: -36px;
+      top: 38px;
+      transform: rotate(10deg);
+      animation-delay: .45s;
+    }
+
+    .home-love-loop {
+      position: absolute;
+      z-index: 8;
+      color: white;
+      font-weight: 950;
+      text-shadow: 0 8px 24px rgba(255, 79, 154, .38);
+      pointer-events: none;
+      animation: homeLoveFloat 2.8s ease-in-out infinite;
+    }
+
+    .hl1 { left: 18px; top: -24px; font-size: 2.5rem; animation-delay: .1s; }
+    .hl2 { right: 18px; top: -18px; font-size: 2rem; animation-delay: .4s; }
+    .hl3 { left: -20px; top: 50%; font-size: 2.2rem; animation-delay: .7s; }
+    .hl4 { right: -18px; top: 48%; font-size: 2.4rem; animation-delay: 1s; }
+    .hl5 { left: 34px; bottom: -28px; font-size: 2.1rem; animation-delay: 1.25s; }
+    .hl6 { right: 38px; bottom: -30px; font-size: 2.8rem; animation-delay: 1.5s; }
+
+    .like-btn {
+      position: absolute;
+      z-index: 20;
+      right: 12px;
+      top: 12px;
+      min-width: 54px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, .84);
+      color: #ff4f9a;
+      font-weight: 950;
+      box-shadow: 0 12px 26px rgba(255, 79, 154, .18);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: .22s ease;
+    }
+
+    .like-btn .love-icon {
+      color: white;
+      -webkit-text-stroke: 1.7px #ff4f9a;
+      text-shadow: none;
+      font-size: 1.18rem;
+      line-height: 1;
+      transition: .22s ease;
+    }
+
+    .like-btn .like-count {
+      color: #bd3b7b;
+      font-size: .92rem;
+    }
+
+    .like-btn.liked {
+      background: linear-gradient(135deg, #ff4f9a, #ff7db8);
+      color: white;
+      transform: scale(1.04);
+    }
+
+    .like-btn.liked .love-icon {
+      color: #ff1f75;
+      -webkit-text-stroke: 0;
+      text-shadow: 0 5px 18px rgba(255, 255, 255, .55);
+    }
+
+    .like-btn.liked .like-count {
+      color: white;
+    }
+
+    .like-btn:active {
+      transform: scale(.92);
+    }
+
+    .quote,
+    .gallery-item,
+    .photo-card,
+    .home-mini-photo {
+      position: relative;
+    }
+
+    @keyframes miniPhotoFloat {
+      0%, 100% {
+        margin-top: 0;
+      }
+      50% {
+        margin-top: -10px;
+      }
+    }
+
+    @keyframes homeLoveFloat {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: .82;
+      }
+      50% {
+        transform: translateY(-12px) scale(1.12);
+        opacity: 1;
+      }
+    }
+
     @keyframes introPop {
       from {
         opacity: 0;
@@ -1060,6 +1193,16 @@
               <span class="white-love wl3">♡</span>
               <span class="white-love wl4">♡</span>
 
+              <span class="home-love-loop hl1">♡</span>
+              <span class="home-love-loop hl2">❤</span>
+              <span class="home-love-loop hl3">♡</span>
+              <span class="home-love-loop hl4">❤</span>
+              <span class="home-love-loop hl5">♡</span>
+              <span class="home-love-loop hl6">❤</span>
+
+              <div class="home-mini-photo mf1"><img src="assets/fina2.jpg" alt="Foto Finoyy 2"></div>
+              <div class="home-mini-photo mf2"><img src="assets/fina3.jpg" alt="Foto Finoyy 3"></div>
+
               <div class="cat-pin cp1"><img src="assets/kucing1.jpg" alt="Dekorasi kucing"></div>
               <div class="cat-pin cp2"><img src="assets/kucing2.jpg" alt="Dekorasi kucing"></div>
               <div class="cat-pin cp3"><img src="assets/kucing3.jpg" alt="Dekorasi kucing"></div>
@@ -1288,6 +1431,35 @@
         burstLove(e.clientX, e.clientY);
       }
     });
+
+
+    function setupLikeButtons() {
+      const items = document.querySelectorAll(".quote, .gallery-item, .photo-card, .home-mini-photo");
+
+      items.forEach((item, index) => {
+        if (item.querySelector(".like-btn")) return;
+
+        const btn = document.createElement("button");
+        btn.className = "like-btn";
+        btn.type = "button";
+        btn.innerHTML = '<span class="love-icon">❤</span><span class="like-count">0</span>';
+
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          const count = btn.querySelector(".like-count");
+          const isLiked = btn.classList.toggle("liked");
+
+          count.textContent = isLiked ? "1" : "0";
+          burstLove(e.clientX, e.clientY);
+        });
+
+        item.appendChild(btn);
+      });
+    }
+
+    setupLikeButtons();
+
 
     function makeHeart() {
       const heart = document.createElement("div");
