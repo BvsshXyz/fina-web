@@ -1877,6 +1877,46 @@
       }
     }
 
+  
+    #photoModal.photo-modal {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 999999 !important;
+      display: none !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 18px !important;
+      background: rgba(45, 12, 32, .84) !important;
+      backdrop-filter: blur(14px) !important;
+    }
+
+    #photoModal.photo-modal.open {
+      display: flex !important;
+    }
+
+    #photoModal .modal-photo-card {
+      position: relative !important;
+      width: min(94vw, 560px) !important;
+      max-height: 90vh !important;
+      padding: 10px !important;
+      border-radius: 32px !important;
+      background: rgba(255, 255, 255, .95) !important;
+      box-shadow: 0 28px 90px rgba(255, 79, 154, .38) !important;
+      animation: modalPop .25s ease both !important;
+    }
+
+    #photoModal #modalImage {
+      width: 100% !important;
+      max-height: 78vh !important;
+      object-fit: contain !important;
+      border-radius: 24px !important;
+      background: #fff0f7 !important;
+    }
+
+    #galeri .slide img {
+      cursor: zoom-in !important;
+    }
+
   </style>
 </head>
 
@@ -2361,12 +2401,21 @@ function setupLikeButtons() {
       document.body.style.overflow = "";
     }
 
-    document.querySelectorAll(".slide-item img, .gallery-item img").forEach((img, index) => {
+    document.querySelectorAll("#galeri .slide img").forEach((img) => {
       img.style.cursor = "zoom-in";
-      img.addEventListener("click", (e) => {
-        e.stopPropagation();
-        openPhotoModal(img.getAttribute("src"), "Foto Finoyy " + (index + 1) + " ♡");
-      });
+    });
+
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest("#galeri .slide img");
+      if (!img) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const imgs = Array.from(document.querySelectorAll("#galeri .slide img"));
+      const index = imgs.indexOf(img) + 1;
+
+      openPhotoModal(img.getAttribute("src"), "Foto Finoyy " + index + " ♡");
     });
 
     if (modalClose) {
