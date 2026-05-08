@@ -743,6 +743,37 @@
       font-weight: 850;
     }
 
+
+    .love-burst {
+      position: fixed;
+      z-index: 999;
+      pointer-events: none;
+      color: #fff;
+      font-weight: 950;
+      text-shadow: 0 8px 24px rgba(255, 79, 154, .45);
+      animation: loveBurst .85s ease-out forwards;
+    }
+
+    @keyframes loveBurst {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.3) rotate(0deg);
+      }
+      18% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform:
+          translate(
+            calc(-50% + var(--x)),
+            calc(-50% + var(--y))
+          )
+          scale(1.35)
+          rotate(var(--r));
+      }
+    }
+
     .heart-fall {
       position: fixed;
       pointer-events: none;
@@ -1161,7 +1192,7 @@
       menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
     });
 
-    function openPage(id) {
+    function showPage(id, shouldPush = true) {
       pages.forEach(page => page.classList.remove("active"));
       tabs.forEach(tab => tab.classList.remove("active"));
 
@@ -1175,7 +1206,14 @@
       menuBtn.textContent = "☰";
 
       window.scrollTo({ top: 0, behavior: "smooth" });
-      history.replaceState(null, "", "#" + id);
+
+      if (shouldPush) {
+        history.pushState({ page: id }, "", "#" + id);
+      }
+    }
+
+    function openPage(id) {
+      showPage(id, true);
     }
 
     tabs.forEach(tab => {
@@ -1188,10 +1226,17 @@
 
     brand.addEventListener("click", () => openPage("home"));
 
-    const hash = window.location.hash.replace("#", "");
-    if (hash && document.getElementById(hash)) {
-      openPage(hash);
-    }
+    const startHash = window.location.hash.replace("#", "");
+    const firstPage = startHash && document.getElementById(startHash) ? startHash : "home";
+
+    history.replaceState({ page: firstPage }, "", "#" + firstPage);
+    showPage(firstPage, false);
+
+    window.addEventListener("popstate", () => {
+      const currentHash = window.location.hash.replace("#", "");
+      const pageId = currentHash && document.getElementById(currentHash) ? currentHash : "home";
+      showPage(pageId, false);
+    });
 
     let themeIndex = 1;
     colorBtn.addEventListener("click", () => {
@@ -1208,6 +1253,39 @@
 
       if (themeIndex > 3) {
         themeIndex = 1;
+      }
+    });
+
+    function burstLove(x, y) {
+      const icons = ["♡", "❤", "💕", "💗", "✦"];
+      const total = 10;
+
+      for (let i = 0; i < total; i++) {
+        const love = document.createElement("div");
+        love.className = "love-burst";
+        love.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+        const angle = (Math.PI * 2 * i) / total;
+        const distance = 45 + Math.random() * 55;
+        const moveX = Math.cos(angle) * distance;
+        const moveY = Math.sin(angle) * distance;
+
+        love.style.left = x + "px";
+        love.style.top = y + "px";
+        love.style.fontSize = (Math.random() * 14 + 18) + "px";
+        love.style.setProperty("--x", moveX + "px");
+        love.style.setProperty("--y", moveY + "px");
+        love.style.setProperty("--r", (Math.random() * 120 - 60) + "deg");
+
+        document.body.appendChild(love);
+        setTimeout(() => love.remove(), 900);
+      }
+    }
+
+    document.addEventListener("click", (e) => {
+      const clickable = e.target.closest("button, .photo-card, .gallery-item, .card, .quote");
+      if (clickable) {
+        burstLove(e.clientX, e.clientY);
       }
     });
 
