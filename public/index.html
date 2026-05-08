@@ -1328,6 +1328,150 @@
       }
     }
 
+
+    .slider-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .slider-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 22px 55px rgba(255, 79, 154, .18);
+      padding: 10px;
+      touch-action: pan-y;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.22, .9, .24, 1);
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .slide img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .slide:after {
+      content: "♡";
+      position: absolute;
+      right: 18px;
+      bottom: 8px;
+      color: white;
+      font-size: 3rem;
+      font-weight: 950;
+      text-shadow: 0 8px 22px rgba(255, 79, 154, .38);
+      pointer-events: none;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      z-index: 8;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: #bd3b7b;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 12px 28px rgba(255, 79, 154, .18);
+      font-size: 1.65rem;
+      font-weight: 900;
+      transition: .22s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .slider-btn:hover {
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color: white;
+    }
+
+    .slider-btn:active {
+      transform: translateY(-50%) scale(.92);
+    }
+
+    .slider-btn.prev {
+      left: -18px;
+    }
+
+    .slider-btn.next {
+      right: -18px;
+    }
+
+    .slider-info {
+      margin: 16px auto 0;
+      width: fit-content;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      color: #bd3b7b;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(255, 79, 154, .1);
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .slider-dot {
+      width: 9px;
+      height: 9px;
+      border: 0;
+      border-radius: 99px;
+      background: rgba(189, 59, 123, .25);
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .slider-dot.active {
+      width: 26px;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 8px 18px rgba(255, 79, 154, .18);
+    }
+
+    @media (max-width: 520px) {
+      .slider-wrap {
+        max-width: 92vw;
+      }
+
+      .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+      }
+
+      .slider-btn.prev {
+        left: 6px;
+      }
+
+      .slider-btn.next {
+        right: 6px;
+      }
+    }
+
     @keyframes introPop {
       from {
         opacity: 0;
@@ -1697,16 +1841,30 @@
       <div class="panel">
         <div class="head">
           <small>Galeri</small>
-          <h2>Foto Finoyy, karena yang utama tetap dia</h2>
+          <h2>Foto Finoyy, digeser pelan-pelan</h2>
         </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-item"><img src="assets/fina1.jpg" alt="Finoyy 1"></div>
-          <div class="gallery-item"><img src="assets/fina2.jpg" alt="Finoyy 2"></div>
-          <div class="gallery-item"><img src="assets/fina3.jpg" alt="Finoyy 3"></div>
-          <div class="gallery-item"><img src="assets/fina4.jpg" alt="Finoyy 4"></div>
-          <div class="gallery-item"><img src="assets/fina5.jpg" alt="Finoyy 5"></div>
-          <div class="gallery-item"><img src="assets/fina6.jpg" alt="Finoyy 6"></div>
+        <div class="slider-wrap">
+          <button class="slider-btn prev" id="prevSlide" type="button">‹</button>
+
+          <div class="slider-frame" id="sliderFrame">
+            <div class="slider-track" id="sliderTrack">
+              <div class="slide"><img src="assets/fina1.jpg" alt="Finoyy 1"></div>
+              <div class="slide"><img src="assets/fina2.jpg" alt="Finoyy 2"></div>
+              <div class="slide"><img src="assets/fina3.jpg" alt="Finoyy 3"></div>
+              <div class="slide"><img src="assets/fina4.jpg" alt="Finoyy 4"></div>
+              <div class="slide"><img src="assets/fina5.jpg" alt="Finoyy 5"></div>
+              <div class="slide"><img src="assets/fina6.jpg" alt="Finoyy 6"></div>
+            </div>
+          </div>
+
+          <button class="slider-btn next" id="nextSlide" type="button">›</button>
+
+          <div class="slider-info">
+            <span id="slideNow">1</span> / <span id="slideTotal">6</span>
+          </div>
+
+          <div class="slider-dots" id="sliderDots"></div>
         </div>
       </div>
     </section>
@@ -1878,6 +2036,90 @@ function setupLikeButtons() {
 
     setupLikeButtons();
 
+
+
+
+    const sliderTrack = document.getElementById("sliderTrack");
+    const sliderFrame = document.getElementById("sliderFrame");
+    const prevSlide = document.getElementById("prevSlide");
+    const nextSlide = document.getElementById("nextSlide");
+    const slideNow = document.getElementById("slideNow");
+    const slideTotal = document.getElementById("slideTotal");
+    const sliderDots = document.getElementById("sliderDots");
+
+    let currentSlide = 0;
+    const totalSlides = sliderTrack ? sliderTrack.children.length : 0;
+    let startX = 0;
+    let endX = 0;
+
+    function buildDots() {
+      if (!sliderDots || !totalSlides) return;
+
+      sliderDots.innerHTML = "";
+
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("button");
+        dot.className = "slider-dot";
+        dot.type = "button";
+        dot.addEventListener("click", () => {
+          currentSlide = i;
+          updateSlider();
+        });
+        sliderDots.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      if (!sliderTrack) return;
+
+      sliderTrack.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+
+      if (slideNow) slideNow.textContent = currentSlide + 1;
+      if (slideTotal) slideTotal.textContent = totalSlides;
+
+      document.querySelectorAll(".slider-dot").forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+      });
+    }
+
+    function nextGallerySlide() {
+      if (!totalSlides) return;
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevGallerySlide() {
+      if (!totalSlides) return;
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    if (prevSlide && nextSlide) {
+      prevSlide.addEventListener("click", prevGallerySlide);
+      nextSlide.addEventListener("click", nextGallerySlide);
+    }
+
+    if (sliderFrame) {
+      sliderFrame.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      sliderFrame.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > 45) {
+          if (diff > 0) {
+            nextGallerySlide();
+          } else {
+            prevGallerySlide();
+          }
+        }
+      }, { passive: true });
+    }
+
+    buildDots();
+    updateSlider();
 
 
     const giftHeart = document.getElementById("giftHeart");
