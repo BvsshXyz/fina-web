@@ -3120,6 +3120,253 @@
       }
     }
 
+  
+    /* REALER FLOWER: 1 BATANG, 3 BUNGA */
+    .real-flower-scene {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 360px);
+      height: 420px;
+      margin: 26px auto 0;
+    }
+
+    .real-stem-main {
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      width: 10px;
+      height: 265px;
+      border-radius: 999px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #1d9b57, #61e48c, #167b43);
+      box-shadow: inset -2px 0 4px rgba(0,0,0,.14), 0 0 16px rgba(97,228,140,.22);
+      transform-origin: bottom;
+      animation: realStemGrow 1.25s ease-out both, realStemSway 4s ease-in-out 1.4s infinite;
+    }
+
+    .real-branch {
+      position: absolute;
+      left: 50%;
+      bottom: 155px;
+      width: 8px;
+      height: 135px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #1a8c4d, #58dd85, #176f40);
+      transform-origin: bottom;
+      box-shadow: inset -2px 0 4px rgba(0,0,0,.12);
+      clip-path: inset(100% 0 0 0);
+      animation: realBranchGrow .9s ease-out 1.0s forwards;
+    }
+
+    .branch-left {
+      transform: translateX(-50%) rotate(-38deg);
+    }
+
+    .branch-mid {
+      bottom: 178px;
+      height: 145px;
+      transform: translateX(-50%) rotate(0deg);
+      animation-delay: 1.15s;
+    }
+
+    .branch-right {
+      transform: translateX(-50%) rotate(38deg);
+      animation-delay: 1.3s;
+    }
+
+    .real-leaf {
+      position: absolute;
+      width: 76px;
+      height: 34px;
+      border-radius: 80% 0 80% 0;
+      background: linear-gradient(135deg, #75ee96, #188d50);
+      box-shadow: inset -6px -4px 10px rgba(0,0,0,.12), 0 8px 18px rgba(42,180,96,.2);
+      opacity: 0;
+      transform: scale(.2);
+      animation: realLeafOpen .65s ease-out forwards;
+    }
+
+    .leaf-a {
+      left: 118px;
+      bottom: 108px;
+      rotate: -28deg;
+      animation-delay: 1.4s;
+    }
+
+    .leaf-b {
+      right: 116px;
+      bottom: 148px;
+      rotate: 210deg;
+      animation-delay: 1.55s;
+    }
+
+    .leaf-c {
+      left: 176px;
+      bottom: 82px;
+      rotate: 28deg;
+      animation-delay: 1.7s;
+    }
+
+    .real-flower {
+      position: absolute;
+      width: 112px;
+      height: 112px;
+      opacity: 0;
+      transform: scale(.25);
+      animation: realBloom .85s cubic-bezier(.2,1.35,.4,1) forwards, realFlowerFloat 4s ease-in-out 2.3s infinite;
+      filter: drop-shadow(0 12px 22px rgba(255, 80, 160, .26));
+    }
+
+    .flower-left {
+      left: 36px;
+      top: 105px;
+      animation-delay: 1.72s, 2.6s;
+      rotate: -12deg;
+    }
+
+    .flower-mid {
+      left: 50%;
+      top: 28px;
+      width: 126px;
+      height: 126px;
+      transform: translateX(-50%) scale(.25);
+      animation-delay: 1.95s, 2.75s;
+    }
+
+    .flower-right {
+      right: 36px;
+      top: 105px;
+      animation-delay: 2.15s, 2.9s;
+      rotate: 12deg;
+    }
+
+    .real-petal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 42px;
+      height: 64px;
+      border-radius: 70% 70% 55% 55%;
+      background:
+        radial-gradient(circle at 35% 20%, rgba(255,255,255,.72), transparent 25%),
+        linear-gradient(155deg, #ff5fa8 0%, #ff9bca 54%, #ff3d91 100%);
+      transform-origin: 50% 88%;
+      box-shadow: inset -5px -9px 12px rgba(179, 34, 105, .12), inset 5px 5px 10px rgba(255,255,255,.22);
+    }
+
+    .rp1 { transform: translate(-50%, -88%) rotate(0deg); }
+    .rp2 { transform: translate(-50%, -88%) rotate(45deg); }
+    .rp3 { transform: translate(-50%, -88%) rotate(90deg); }
+    .rp4 { transform: translate(-50%, -88%) rotate(135deg); }
+    .rp5 { transform: translate(-50%, -88%) rotate(180deg); }
+    .rp6 { transform: translate(-50%, -88%) rotate(225deg); }
+    .rp7 { transform: translate(-50%, -88%) rotate(270deg); }
+    .rp8 { transform: translate(-50%, -88%) rotate(315deg); }
+
+    .real-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background:
+        radial-gradient(circle at 32% 24%, rgba(255,255,255,.82), transparent 26%),
+        radial-gradient(circle at center, #ffe7a8, #ffbbd9 70%);
+      box-shadow: inset -3px -4px 8px rgba(190, 90, 80, .14), 0 0 20px rgba(255, 210, 230, .42);
+    }
+
+    .real-core:after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff86bd, #f5529f);
+      opacity: .5;
+    }
+
+    .garden-ground {
+      position: absolute;
+      left: 50%;
+      bottom: 6px;
+      width: 220px;
+      height: 34px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(70,255,140,.22), transparent 68%);
+      filter: blur(.5px);
+    }
+
+    @keyframes realStemGrow {
+      from { clip-path: inset(100% 0 0 0); }
+      to { clip-path: inset(0 0 0 0); }
+    }
+
+    @keyframes realStemSway {
+      0%,100% { rotate: 0deg; }
+      50% { rotate: 1.6deg; }
+    }
+
+    @keyframes realBranchGrow {
+      from { clip-path: inset(100% 0 0 0); }
+      to { clip-path: inset(0 0 0 0); }
+    }
+
+    @keyframes realLeafOpen {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes realBloom {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .flower-mid.real-flower {
+      animation-name: realBloomMid, realFlowerFloat;
+    }
+
+    @keyframes realBloomMid {
+      to { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
+
+    @keyframes realFlowerFloat {
+      0%,100% { margin-top: 0; }
+      50% { margin-top: -7px; }
+    }
+
+    @media (max-width: 520px) {
+      .real-flower-scene {
+        width: 320px;
+        height: 400px;
+      }
+
+      .real-flower {
+        width: 96px;
+        height: 96px;
+      }
+
+      .flower-mid {
+        width: 112px;
+        height: 112px;
+        top: 34px;
+      }
+
+      .flower-left {
+        left: 28px;
+        top: 116px;
+      }
+
+      .flower-right {
+        right: 28px;
+        top: 116px;
+      }
+
+      .real-petal {
+        width: 36px;
+        height: 56px;
+      }
+    }
+
   </style>
 </head>
 
@@ -3373,80 +3620,62 @@
 
 
 
+
     <section class="page" id="hadiah">
-      <div class="gift-galaxy">
-        <div class="galaxy-content">
-          <div class="galaxy-title">
-            <small>Hadiah Rahasia</small>
-            <h2>Bunga kecil buat Finoyy</h2>
+      <div class="gift-garden">
+        <div class="gift-title">
+          <small>Hadiah Rahasia</small>
+          <h2>Bunga kecil buat Finoyy</h2>
+        </div>
+
+        <div class="real-flower-scene">
+          <span class="spark sp1">♡</span>
+          <span class="spark sp2">✦</span>
+          <span class="spark sp3">♡</span>
+          <span class="spark sp4">✦</span>
+
+          <div class="garden-ground"></div>
+
+          <div class="real-stem-main"></div>
+          <div class="real-branch branch-left"></div>
+          <div class="real-branch branch-mid"></div>
+          <div class="real-branch branch-right"></div>
+
+          <div class="real-leaf leaf-a"></div>
+          <div class="real-leaf leaf-b"></div>
+          <div class="real-leaf leaf-c"></div>
+
+          <div class="real-flower flower-left">
+            <div class="real-petal rp1"></div><div class="real-petal rp2"></div>
+            <div class="real-petal rp3"></div><div class="real-petal rp4"></div>
+            <div class="real-petal rp5"></div><div class="real-petal rp6"></div>
+            <div class="real-petal rp7"></div><div class="real-petal rp8"></div>
+            <div class="real-core"></div>
           </div>
 
-          <div class="flower-scene">
-            <span class="galaxy-heart gh1">♡</span>
-            <span class="galaxy-heart gh2">❤</span>
-            <span class="galaxy-heart gh3">♡</span>
-            <span class="galaxy-heart gh4">✦</span>
-
-            <div class="flower-bouquet">
-              <div class="real-flower flower-a">
-                <div class="real-stem"></div>
-                <div class="real-leaf leaf-l"></div>
-                <div class="real-leaf leaf-r"></div>
-                <div class="real-head">
-                  <div class="real-petal rp1"></div>
-                  <div class="real-petal rp2"></div>
-                  <div class="real-petal rp3"></div>
-                  <div class="real-petal rp4"></div>
-                  <div class="real-petal rp5"></div>
-                  <div class="real-petal rp6"></div>
-                  <div class="real-petal rp7"></div>
-                  <div class="real-petal rp8"></div>
-                  <div class="real-core">♡</div>
-                </div>
-              </div>
-
-              <div class="real-flower flower-b">
-                <div class="real-stem"></div>
-                <div class="real-leaf leaf-l"></div>
-                <div class="real-leaf leaf-r"></div>
-                <div class="real-head">
-                  <div class="real-petal rp1"></div>
-                  <div class="real-petal rp2"></div>
-                  <div class="real-petal rp3"></div>
-                  <div class="real-petal rp4"></div>
-                  <div class="real-petal rp5"></div>
-                  <div class="real-petal rp6"></div>
-                  <div class="real-petal rp7"></div>
-                  <div class="real-petal rp8"></div>
-                  <div class="real-core">♡</div>
-                </div>
-              </div>
-
-              <div class="real-flower flower-c">
-                <div class="real-stem"></div>
-                <div class="real-leaf leaf-l"></div>
-                <div class="real-leaf leaf-r"></div>
-                <div class="real-head">
-                  <div class="real-petal rp1"></div>
-                  <div class="real-petal rp2"></div>
-                  <div class="real-petal rp3"></div>
-                  <div class="real-petal rp4"></div>
-                  <div class="real-petal rp5"></div>
-                  <div class="real-petal rp6"></div>
-                  <div class="real-petal rp7"></div>
-                  <div class="real-petal rp8"></div>
-                  <div class="real-core">♡</div>
-                </div>
-              </div>
-            </div>
+          <div class="real-flower flower-mid">
+            <div class="real-petal rp1"></div><div class="real-petal rp2"></div>
+            <div class="real-petal rp3"></div><div class="real-petal rp4"></div>
+            <div class="real-petal rp5"></div><div class="real-petal rp6"></div>
+            <div class="real-petal rp7"></div><div class="real-petal rp8"></div>
+            <div class="real-core"></div>
           </div>
 
-          <div class="gift-final">
-            <p>Selamat, ini bunga pink kecil dari Bayuu buat Finoyy ♡</p>
+          <div class="real-flower flower-right">
+            <div class="real-petal rp1"></div><div class="real-petal rp2"></div>
+            <div class="real-petal rp3"></div><div class="real-petal rp4"></div>
+            <div class="real-petal rp5"></div><div class="real-petal rp6"></div>
+            <div class="real-petal rp7"></div><div class="real-petal rp8"></div>
+            <div class="real-core"></div>
           </div>
         </div>
+
+        <p class="gift-note">
+          Satu batang dengan tiga bunga pink kecil. Buat Finoyy, dari Bayuu ♡
+        </p>
       </div>
     </section>
+
 
 
 
