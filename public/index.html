@@ -2443,6 +2443,118 @@
       flex: 0 0 100% !important;
     }
 
+  
+    .reply-open-btn {
+      margin: 22px auto 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      cursor: pointer;
+      padding: 13px 18px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 16px 34px rgba(255, 79, 154, .22);
+      transition: .22s ease;
+    }
+
+    .reply-open-btn:active {
+      transform: scale(.96);
+    }
+
+    .reply-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(55, 18, 38, .55);
+      backdrop-filter: blur(12px);
+    }
+
+    .reply-modal.open {
+      display: flex;
+    }
+
+    .reply-card {
+      width: min(92vw, 520px);
+      max-height: 82vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 28px 22px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 127, 184, .16), transparent 30%),
+        rgba(255, 255, 255, .94);
+      box-shadow: 0 28px 90px rgba(255, 79, 154, .34);
+      animation: replyPop .28s ease both;
+      text-align: center;
+    }
+
+    .reply-card:before {
+      content: "♡";
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      color: #ffd3e7;
+      font-size: 4.8rem;
+      font-weight: 950;
+      line-height: 1;
+      transform: rotate(14deg);
+      pointer-events: none;
+    }
+
+    .reply-card h3 {
+      position: relative;
+      z-index: 2;
+      color: #3d1d2e;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+      margin-bottom: 16px;
+    }
+
+    .reply-card p {
+      position: relative;
+      z-index: 2;
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .reply-close {
+      position: sticky;
+      bottom: 0;
+      z-index: 3;
+      width: 100%;
+      margin-top: 20px;
+      border: 0;
+      cursor: pointer;
+      padding: 13px 16px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 14px 30px rgba(255, 79, 154, .22);
+    }
+
+    @keyframes replyPop {
+      from {
+        opacity: 0;
+        transform: scale(.94) translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
   </style>
 </head>
 
@@ -2629,7 +2741,7 @@
         </div>
 
         <div class="letter">
-          <h2>Makasih banyak, sayang 🤍</h2>
+          
           <p>
             Makasii banyakk sayangg untukk semuaa hall kecil ataupunn besarr
             yang udahh kamuu usahainn buat akuu, untuk sabar mu, untukk kabarr
@@ -2641,6 +2753,8 @@
             <br><br>
             Makasii banyakk yaa sayangg untukk semuanyaa 🤍
           </p>
+
+          <button class="reply-open-btn" id="openReplyBtn" type="button">Lihat balasan ♡</button>
         </div>
       </div>
     </section>
@@ -2731,6 +2845,24 @@
       <button class="modal-close" id="modalClose" type="button">×</button>
       <img src="" alt="Foto Finoyy fullscreen" id="modalImage">
       <div class="modal-caption" id="modalCaption">Foto Finoyy ♡</div>
+    </div>
+  </div>
+
+
+  <div class="reply-modal" id="replyModal">
+    <div class="reply-card">
+      <h3>Balasan dari Bayuu</h3>
+      <p>
+        Iyaa sama-sama sayang. Aku juga mau terima kasih sama kamu karena udah hadir
+        di kehidupan aku sekarang. Aku bakal usahain kamu sampai kita benar-benar
+        bisa bareng, sampai jadi keluarga 🥹
+        <br><br>
+        Aku bangga banget punya kamu. Aku pengen sampai akhir tetap sama kamu terus.
+        Kita bakal wujudin wishlist kita bareng-bareng.
+        <br><br>
+        Makasih juga sayang buat semua hal yang udah kamu lakuin buat aku.
+      </p>
+      <button class="reply-close" id="closeReplyBtn" type="button">Tutup</button>
     </div>
   </div>
 
@@ -3526,6 +3658,34 @@ function setupLikeButtons() {
     setupStaticPhotos();
     loadUploadedPhotos();
 
+
+
+    const openReplyBtn = document.getElementById("openReplyBtn");
+    const replyModal = document.getElementById("replyModal");
+    const closeReplyBtn = document.getElementById("closeReplyBtn");
+
+    if (openReplyBtn && replyModal) {
+      openReplyBtn.addEventListener("click", () => {
+        replyModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      });
+    }
+
+    function closeReplyModal() {
+      if (!replyModal) return;
+      replyModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    if (closeReplyBtn) {
+      closeReplyBtn.addEventListener("click", closeReplyModal);
+    }
+
+    if (replyModal) {
+      replyModal.addEventListener("click", (e) => {
+        if (e.target === replyModal) closeReplyModal();
+      });
+    }
 
     function makeHeart() {
       const heart = document.createElement("div");
