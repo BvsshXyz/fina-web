@@ -1917,6 +1917,105 @@
       cursor: zoom-in !important;
     }
 
+  
+    /* FIX: dekorasi jangan nutupin teks */
+    .panel {
+      overflow: hidden !important;
+    }
+
+    .panel:before,
+    .panel:after,
+    .gift-box:before,
+    .gift-box:after,
+    .letter:before,
+    .letter:after {
+      z-index: 0 !important;
+      opacity: .18 !important;
+      pointer-events: none !important;
+    }
+
+    .head,
+    .cards,
+    .quotes-grid,
+    .gallery-slider,
+    .slider-wrap,
+    .gift-box,
+    .gift-center,
+    .gift-result,
+    .letter h2,
+    .letter p {
+      position: relative !important;
+      z-index: 5 !important;
+    }
+
+    .gift-spark,
+    .hero-love,
+    .home-love-loop,
+    .heart-fall {
+      pointer-events: none !important;
+    }
+
+    .gift-spark {
+      z-index: 1 !important;
+      opacity: .22 !important;
+      filter: blur(.2px);
+    }
+
+    .gift-center {
+      background: rgba(255, 255, 255, .9) !important;
+    }
+
+    .gift-result {
+      background: rgba(255, 255, 255, .94) !important;
+      overflow: hidden !important;
+    }
+
+    .quote:before {
+      z-index: 0 !important;
+      opacity: .12 !important;
+      pointer-events: none !important;
+    }
+
+    .quote span,
+    .quote .like-btn {
+      position: relative !important;
+      z-index: 4 !important;
+    }
+
+    .gallery-item:after {
+      z-index: 1 !important;
+      opacity: .45 !important;
+      pointer-events: none !important;
+    }
+
+    .gallery-item img,
+    .gallery-item .like-btn {
+      position: relative !important;
+      z-index: 3 !important;
+    }
+
+    /* Biar tombol love di quotes tidak nutup kalimat */
+    .quote {
+      padding-right: 78px !important;
+    }
+
+    @media (max-width: 520px) {
+      .quote {
+        padding-right: 68px !important;
+      }
+
+      .gift-box:before,
+      .gift-box:after,
+      .panel:before,
+      .panel:after {
+        opacity: .1 !important;
+      }
+
+      .gift-spark {
+        opacity: .14 !important;
+      }
+    }
+
   </style>
 </head>
 
