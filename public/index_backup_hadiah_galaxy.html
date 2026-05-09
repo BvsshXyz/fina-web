@@ -2555,281 +2555,6 @@
       }
     }
 
-  
-    /* HADIAH GALAXY FLOWER */
-    .gift-galaxy {
-      min-height: 620px;
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 158, 208, .35), transparent 24%),
-        radial-gradient(circle at 80% 28%, rgba(255, 255, 255, .22), transparent 20%),
-        radial-gradient(circle at 50% 85%, rgba(255, 80, 162, .26), transparent 30%),
-        linear-gradient(145deg, #31152b, #6b2556 48%, #ffabd0);
-      box-shadow: 0 26px 80px rgba(255, 79, 154, .24);
-      color: white;
-    }
-
-    .gift-galaxy:before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.9) 0 1px, transparent 1.8px),
-        radial-gradient(circle, rgba(255,215,236,.85) 0 1px, transparent 1.8px);
-      background-size: 48px 48px, 76px 76px;
-      background-position: 0 0, 20px 30px;
-      opacity: .28;
-      animation: galaxyStars 9s linear infinite;
-    }
-
-    .gift-galaxy:after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,.18), transparent 68%);
-      filter: blur(2px);
-      animation: galaxyGlow 5s ease-in-out infinite;
-    }
-
-    .galaxy-content {
-      position: relative;
-      z-index: 3;
-      width: min(92vw, 520px);
-      min-height: 540px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 26px 18px;
-    }
-
-    .galaxy-title {
-      position: absolute;
-      top: 28px;
-      left: 18px;
-      right: 18px;
-    }
-
-    .galaxy-title small {
-      display: block;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: 950;
-      color: #ffd6ea;
-      margin-bottom: 8px;
-    }
-
-    .galaxy-title h2 {
-      font-size: clamp(2rem, 7vw, 3.4rem);
-      line-height: .96;
-      letter-spacing: -.06em;
-      color: white;
-      text-shadow: 0 10px 30px rgba(255, 79, 154, .28);
-    }
-
-    .flower-scene {
-      position: relative;
-      width: 320px;
-      height: 390px;
-      margin-top: 70px;
-    }
-
-    .flower-stem {
-      position: absolute;
-      left: 50%;
-      bottom: 58px;
-      width: 12px;
-      height: 230px;
-      border-radius: 999px;
-      transform-origin: bottom;
-      transform: translateX(-50%) scaleY(0);
-      background: linear-gradient(#b9ffcf, #3fcf7b);
-      box-shadow: 0 0 22px rgba(116, 255, 172, .38);
-      animation: stemGrow 1.5s ease-out .25s forwards, stemSway 3s ease-in-out 1.8s infinite;
-    }
-
-    .flower-leaf {
-      position: absolute;
-      bottom: 135px;
-      width: 82px;
-      height: 38px;
-      border-radius: 999px 0 999px 0;
-      background: linear-gradient(135deg, #93ffbd, #2fbf70);
-      opacity: 0;
-      box-shadow: 0 0 20px rgba(116, 255, 172, .3);
-    }
-
-    .leaf-left {
-      left: 62px;
-      transform: rotate(-28deg) scale(.2);
-      animation: leafPop .7s ease-out 1.25s forwards;
-    }
-
-    .leaf-right {
-      right: 62px;
-      transform: rotate(28deg) scale(.2) scaleX(-1);
-      animation: leafPopRight .7s ease-out 1.45s forwards;
-    }
-
-    .flower-head {
-      position: absolute;
-      left: 50%;
-      top: 48px;
-      width: 180px;
-      height: 180px;
-      transform: translateX(-50%) scale(0);
-      animation: flowerBloom .9s cubic-bezier(.2,1.4,.4,1) 1.65s forwards, flowerFloat 3.2s ease-in-out 2.5s infinite;
-    }
-
-    .petal {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 78px;
-      height: 102px;
-      border-radius: 70% 70% 55% 55%;
-      background:
-        radial-gradient(circle at 35% 22%, rgba(255,255,255,.78), transparent 24%),
-        linear-gradient(145deg, #ff5fa9, #ffb3d4);
-      box-shadow: 0 12px 28px rgba(255, 79, 154, .25);
-      transform-origin: 50% 95%;
-    }
-
-    .p1 { transform: translate(-50%, -95%) rotate(0deg); }
-    .p2 { transform: translate(-50%, -95%) rotate(45deg); }
-    .p3 { transform: translate(-50%, -95%) rotate(90deg); }
-    .p4 { transform: translate(-50%, -95%) rotate(135deg); }
-    .p5 { transform: translate(-50%, -95%) rotate(180deg); }
-    .p6 { transform: translate(-50%, -95%) rotate(225deg); }
-    .p7 { transform: translate(-50%, -95%) rotate(270deg); }
-    .p8 { transform: translate(-50%, -95%) rotate(315deg); }
-
-    .flower-core {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 72px;
-      height: 72px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      background:
-        radial-gradient(circle at 32% 26%, white, transparent 24%),
-        linear-gradient(135deg, #fff2a6, #ff9fc9);
-      color: #d83c86;
-      font-size: 2.1rem;
-      box-shadow: 0 0 35px rgba(255, 209, 232, .72);
-    }
-
-    .galaxy-heart {
-      position: absolute;
-      color: rgba(255,255,255,.88);
-      font-weight: 950;
-      text-shadow: 0 8px 24px rgba(255, 79, 154, .45);
-      animation: orbitHeart 4s ease-in-out infinite;
-    }
-
-    .gh1 { left: 28px; top: 180px; font-size: 2rem; animation-delay: .1s; }
-    .gh2 { right: 24px; top: 142px; font-size: 2.4rem; animation-delay: .5s; }
-    .gh3 { left: 52px; bottom: 78px; font-size: 2.2rem; animation-delay: .9s; }
-    .gh4 { right: 62px; bottom: 76px; font-size: 1.8rem; animation-delay: 1.2s; }
-
-    .gift-final {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 24px;
-      opacity: 0;
-      transform: translateY(14px);
-      animation: finalGiftIn .7s ease 3.1s forwards;
-    }
-
-    .gift-final p {
-      color: #ffe7f3;
-      font-weight: 800;
-      line-height: 1.55;
-      margin-bottom: 12px;
-      text-shadow: 0 8px 22px rgba(55, 18, 38, .26);
-    }
-
-    .galaxy-claim-btn {
-      border: 0;
-      width: min(100%, 320px);
-      cursor: pointer;
-      padding: 14px 18px;
-      border-radius: 999px;
-      color: #bd3b7b;
-      background: rgba(255,255,255,.92);
-      font-weight: 950;
-      box-shadow: 0 16px 36px rgba(255, 79, 154, .24);
-      transition: .22s ease;
-    }
-
-    .galaxy-claim-btn:active {
-      transform: scale(.96);
-    }
-
-    @keyframes galaxyStars {
-      from { background-position: 0 0, 20px 30px; }
-      to { background-position: 48px 48px, 96px 106px; }
-    }
-
-    @keyframes galaxyGlow {
-      0%,100% { transform: scale(1); opacity: .8; }
-      50% { transform: scale(1.16); opacity: 1; }
-    }
-
-    @keyframes stemGrow {
-      to { transform: translateX(-50%) scaleY(1); }
-    }
-
-    @keyframes stemSway {
-      0%,100% { rotate: 0deg; }
-      50% { rotate: 2.5deg; }
-    }
-
-    @keyframes leafPop {
-      to { opacity: 1; transform: rotate(-28deg) scale(1); }
-    }
-
-    @keyframes leafPopRight {
-      to { opacity: 1; transform: rotate(28deg) scale(1) scaleX(-1); }
-    }
-
-    @keyframes flowerBloom {
-      to { transform: translateX(-50%) scale(1); }
-    }
-
-    @keyframes flowerFloat {
-      0%,100% { margin-top: 0; }
-      50% { margin-top: -10px; }
-    }
-
-    @keyframes orbitHeart {
-      0%,100% { transform: translateY(0) scale(1); opacity: .72; }
-      50% { transform: translateY(-16px) scale(1.15); opacity: 1; }
-    }
-
-    @keyframes finalGiftIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 520px) {
-      .gift-galaxy { min-height: 590px; }
-      .flower-scene { width: 285px; height: 370px; }
-      .flower-head { width: 155px; height: 155px; top: 58px; }
-      .petal { width: 66px; height: 88px; }
-      .flower-core { width: 62px; height: 62px; font-size: 1.8rem; }
-      .flower-stem { height: 210px; }
-    }
-
   </style>
 </head>
 
@@ -3080,46 +2805,37 @@
     </section>
 
 
-
     <section class="page" id="hadiah">
-      <div class="gift-galaxy">
-        <div class="galaxy-content">
-          <div class="galaxy-title">
-            <small>Hadiah Rahasia</small>
-            <h2>Bunga kecil buat Finoyy</h2>
-          </div>
+      <div class="panel">
+        <div class="gift-box">
+          <span class="gift-spark gs1">♡</span>
+          <span class="gift-spark gs2">❤</span>
+          <span class="gift-spark gs3">♡</span>
+          <span class="gift-spark gs4">❤</span>
 
-          <div class="flower-scene">
-            <span class="galaxy-heart gh1">♡</span>
-            <span class="galaxy-heart gh2">❤</span>
-            <span class="galaxy-heart gh3">♡</span>
-            <span class="galaxy-heart gh4">✦</span>
-
-            <div class="flower-stem"></div>
-            <div class="flower-leaf leaf-left"></div>
-            <div class="flower-leaf leaf-right"></div>
-
-            <div class="flower-head">
-              <div class="petal p1"></div>
-              <div class="petal p2"></div>
-              <div class="petal p3"></div>
-              <div class="petal p4"></div>
-              <div class="petal p5"></div>
-              <div class="petal p6"></div>
-              <div class="petal p7"></div>
-              <div class="petal p8"></div>
-              <div class="flower-core">♡</div>
+          <div class="gift-center">
+            <button class="gift-big-love" id="giftHeart" type="button">❤</button>
+            <div class="gift-count">
+              <span id="giftCount">0</span>
+              <span>/ 3 klik</span>
             </div>
-          </div>
+            <h2>Hadiah rahasia</h2>
+            <p>
+              Klik love-nya 3 kali. Kalau udah kebuka, hadiahnya langsung muncul.
+            </p>
+            <div class="gift-hint" id="giftHint">Klik pelan-pelan ya, Finoyy ♡</div>
 
-          <div class="gift-final">
-            <p>Selamat, ini dia hadiah kamu. Bunga pink kecil dari Bayuu buat Finoyy ♡</p>
-            <button class="galaxy-claim-btn" id="giftClaimBtn" type="button">Ambil hadiah</button>
+            <div class="gift-result" id="giftResult">
+              <h3>Selamat, ini dia hadiah kamu ♡</h3>
+              <p>
+                Hadiahnya sudah kebuka. Tinggal ambil aja pelan-pelan.
+              </p>
+              <button class="gift-claim-btn" id="giftClaimBtn" type="button">Ambil hadiah</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
 
   </main>
 
@@ -3968,14 +3684,6 @@ function setupLikeButtons() {
     if (replyModal) {
       replyModal.addEventListener("click", (e) => {
         if (e.target === replyModal) closeReplyModal();
-      });
-    }
-
-
-    const galaxyGiftBtn = document.getElementById("giftClaimBtn");
-    if (galaxyGiftBtn) {
-      galaxyGiftBtn.addEventListener("click", () => {
-        window.location.href = "https://wa.me/6283824505310?text=Selamat%2C%20ini%20dia%20hadiah%20kamu";
       });
     }
 
