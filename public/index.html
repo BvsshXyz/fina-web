@@ -2016,6 +2016,182 @@
       }
     }
 
+  
+    /* FIX: dekorasi di atas teks, tombol love di kanan bawah */
+    .panel {
+      padding-top: 78px !important;
+      overflow: hidden !important;
+    }
+
+    .panel:before {
+      right: 22px !important;
+      top: 10px !important;
+      bottom: auto !important;
+      font-size: 5.6rem !important;
+      opacity: .42 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      transform: rotate(12deg) !important;
+    }
+
+    .panel:after {
+      display: none !important;
+    }
+
+    .head,
+    .cards,
+    .quotes-grid,
+    .gallery-slider,
+    .slider-wrap,
+    .gift-box,
+    .gift-center,
+    .gift-result {
+      position: relative !important;
+      z-index: 4 !important;
+    }
+
+    /* Dekorasi quotes dipindah ke atas, bukan nutup tulisan */
+    .quote {
+      padding: 58px 24px 70px 24px !important;
+      overflow: hidden !important;
+    }
+
+    .quote:before {
+      left: 22px !important;
+      top: 4px !important;
+      font-size: 4.8rem !important;
+      opacity: .24 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    .quote span {
+      position: relative !important;
+      z-index: 3 !important;
+    }
+
+    /* Tombol love/like pindah ke pojok kanan bawah */
+    .like-btn {
+      top: auto !important;
+      right: 14px !important;
+      bottom: 14px !important;
+      z-index: 10 !important;
+    }
+
+    .quote .like-btn {
+      top: auto !important;
+      right: 16px !important;
+      bottom: 16px !important;
+    }
+
+    .gallery-item .like-btn,
+    .slide .like-btn,
+    .heart-box .like-btn {
+      top: auto !important;
+      right: 12px !important;
+      bottom: 12px !important;
+    }
+
+    /* Dekorasi hadiah dipindah ke atas area */
+    .gift-box {
+      padding-top: 58px !important;
+    }
+
+    .gift-box:before {
+      left: 18px !important;
+      top: 8px !important;
+      bottom: auto !important;
+      font-size: 5.4rem !important;
+      opacity: .38 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      transform: rotate(-14deg) !important;
+    }
+
+    .gift-box:after {
+      right: 18px !important;
+      top: 22px !important;
+      bottom: auto !important;
+      font-size: 4.8rem !important;
+      opacity: .34 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      transform: rotate(14deg) !important;
+    }
+
+    .gift-spark {
+      top: 24px !important;
+      bottom: auto !important;
+      z-index: 2 !important;
+      opacity: .55 !important;
+      pointer-events: none !important;
+    }
+
+    .gs1 { left: 22% !important; top: 18px !important; }
+    .gs2 { right: 22% !important; top: 22px !important; }
+    .gs3 { left: 36% !important; top: 48px !important; }
+    .gs4 { right: 36% !important; top: 50px !important; }
+
+    .gift-center {
+      position: relative !important;
+      z-index: 5 !important;
+    }
+
+    /* Dekorasi galeri tetap di pojok, tombol love bawah kanan */
+    .gallery-item {
+      padding-bottom: 54px !important;
+    }
+
+    .gallery-item:after {
+      right: 18px !important;
+      top: 12px !important;
+      bottom: auto !important;
+      opacity: .7 !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+    }
+
+    .gallery-item img {
+      position: relative !important;
+      z-index: 3 !important;
+    }
+
+    @media (max-width: 520px) {
+      .panel {
+        padding-top: 64px !important;
+      }
+
+      .panel:before {
+        font-size: 4.5rem !important;
+        right: 16px !important;
+        top: 8px !important;
+      }
+
+      .quote {
+        padding: 52px 20px 66px 20px !important;
+      }
+
+      .quote:before {
+        font-size: 4.1rem !important;
+        left: 18px !important;
+        top: 4px !important;
+      }
+
+      .like-btn {
+        right: 12px !important;
+        bottom: 12px !important;
+      }
+
+      .gift-box:before,
+      .gift-box:after {
+        font-size: 4rem !important;
+      }
+
+      .gs1, .gs2, .gs3, .gs4 {
+        opacity: .45 !important;
+      }
+    }
+
   </style>
 </head>
 
