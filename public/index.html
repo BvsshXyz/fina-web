@@ -2192,6 +2192,97 @@
       }
     }
 
+  
+    /* FINAL FIX QUOTES: dekorasi jelas di atas, tombol love pojok kanan bawah */
+    #quotes .quote {
+      position: relative !important;
+      min-height: 230px !important;
+      padding: 82px 28px 76px 28px !important;
+      overflow: hidden !important;
+      display: block !important;
+    }
+
+    #quotes .quote:before {
+      content: "“" !important;
+      position: absolute !important;
+      left: 28px !important;
+      top: 8px !important;
+      font-size: 6rem !important;
+      line-height: 1 !important;
+      color: #ffd5e8 !important;
+      opacity: 1 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    #quotes .quote:after {
+      content: "♡" !important;
+      position: absolute !important;
+      right: 28px !important;
+      top: 18px !important;
+      font-size: 3.4rem !important;
+      line-height: 1 !important;
+      color: #ffd5e8 !important;
+      opacity: 1 !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      transform: rotate(14deg) !important;
+      text-shadow: 0 10px 24px rgba(255, 79, 154, .16) !important;
+    }
+
+    #quotes .quote span {
+      position: relative !important;
+      z-index: 3 !important;
+      display: block !important;
+    }
+
+    #quotes .quote .like-btn {
+      position: absolute !important;
+      top: auto !important;
+      left: auto !important;
+      right: 20px !important;
+      bottom: 18px !important;
+      transform: none !important;
+      z-index: 8 !important;
+      margin: 0 !important;
+    }
+
+    #quotes .quote .like-btn:active {
+      transform: scale(.94) !important;
+    }
+
+    #quotes .quote .like-btn.liked {
+      transform: none !important;
+    }
+
+    #quotes .quote .like-btn.liked:active {
+      transform: scale(.94) !important;
+    }
+
+    @media (max-width: 520px) {
+      #quotes .quote {
+        min-height: 220px !important;
+        padding: 74px 24px 74px 24px !important;
+      }
+
+      #quotes .quote:before {
+        left: 24px !important;
+        top: 8px !important;
+        font-size: 5rem !important;
+      }
+
+      #quotes .quote:after {
+        right: 24px !important;
+        top: 18px !important;
+        font-size: 2.8rem !important;
+      }
+
+      #quotes .quote .like-btn {
+        right: 18px !important;
+        bottom: 18px !important;
+      }
+    }
+
   </style>
 </head>
 
